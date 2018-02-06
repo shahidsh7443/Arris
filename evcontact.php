@@ -63,7 +63,7 @@ thead{font-weight:bold;}
 
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
 
         </div>
 

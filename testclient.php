@@ -41,7 +41,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/logo.png" alt="ArrisTechnologies Logo" />
+          <img id="logo" src="img/av.png" alt="ArrisTechnologies Logo" />
         </div>
         <div class="span7"><!--Navigation-->
           <ul id="nav">

@@ -58,7 +58,7 @@ thead{font-weight:bold;}
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-                  <a href="arriswellness.php"><img id="logo" src="img/welogo.png" alt="ArrisWellness Logo" class="js" /></a>
+                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -5px;max-width:  103%;" class="js" /></a>
 
         </div>
 
@@ -267,7 +267,7 @@ thead{font-weight:bold;}
   </div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
-    <div class="row-fluid" id="bottom_nav">
+    <div class="row-fluid wel" id="bottom_nav">
         <div class="span1 offset1">
         	<a href="index.html"><span class="bottom_nav_bold">Home</span></a>
         </div>

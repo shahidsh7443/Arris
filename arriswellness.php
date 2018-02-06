@@ -64,7 +64,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/welogo.png" alt="ArrisWellness Logo" class="js" />
+          <img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -5px;max-width:  103%;" class="js" />
 
         </div>
 
@@ -151,7 +151,7 @@
   </di>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
-    <div class="row-fluid" id="bottom_nav">
+    <div class="row-fluid wel" id="bottom_nav">
         <div class="span1 offset1">
         	<a href="index.html"><span class="bottom_nav_bold">Home</span></a>
         </div>

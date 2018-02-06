@@ -67,7 +67,7 @@
 	<!-- Header Row -->
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -103,10 +103,10 @@
   </p>
   <h5>Vinayak Joshi, Hiring Manager, Software Company, Koramangala, Bangalore </h5>
 <p class="sep"></p>
-<h4>If you are looking for any Technical Evaluation for your organisation, please write us your requirement </h4>
-<div class="row-fluid tcc">
+<h4  id="frmm">If you are looking for any Technical Evaluation for your organisation, please write us your requirement </h4>
+<div class="row-fluid tcc" >
   <form id="form"  name="form" method="POST" class="tcform" action="http://projects.razorbee.com/arrisventures/evtraining.php" target="_blank" enctype="multipart/form-data">
-    <h1>Looking for Technical Evaluation?</h1>
+  <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">LOOKING FOR CORPORATE TRAINING?</h2>
   	<div class="form-group">
   		<div class="col-sm-6">
   			<input type="text" class="form-control" maxlength="50" id="name" name="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$" placeholder="*Enter Name"  required/>
@@ -152,7 +152,6 @@
   			<img id="loadimg" class="loadimg" style="display:none;" src="http://arristeck.com/wp-content/themes/arris/images/loading.gif">
   			<button type="submit" name="submit" id="submit_button" class="btn btn-info submit_button" onclick="send_mail3_contact()">Submit</button>
   			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning">Reset</button>
-  			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
   		</div>
   	</div>
 
@@ -160,6 +159,47 @@
 </div>
         </div>
     </div>
+    <!-- Mail -->
+    <?php
+    if(isset($_POST['submit'])) {
+
+    $namef = $_POST['name'];
+    $location= $_POST['cloc'];
+    $mobile= $_POST['mobile'];
+    $email= $_POST['email'];
+    $compname= $_POST['compname'];
+    $compurl = $_POST['compurl'];
+    $designation= $_POST['desig'];
+    $hire= $_POST['hire'];
+    $msg= $_POST['com'];
+    $subject = "Your request acknowledgement";
+    $body = "Dear " .$namef. "," ."<br><br>". "Thanks for business enquiry. One of our sales managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>Sales Team<br>Mobile : 7353775774 <br>www.arristeck.com";
+    // Always set content-type when sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From:rekha@arristeck.com". "\r\n" .
+    "CC: anil@arristeck.com,arvind@arristeck.com";
+    $success=mail($email,$subject,$body,$headers);
+    if( $success== true ) {
+    echo "<script type='text/javascript'>alert('Resume submitted successfully');</script>";
+    }else {
+    echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
+    }
+    $subject = "Business Enquiry";
+    $body = "Dear Sales Team,<br><br>You have received an online business enquiry with the following details.<br/><br/>Fisrt Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$namef. "<br/><br/>Mobile No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$mobile. "<br/><br/>Email Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$email. "<br/><br/>Company Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compname."<br/><br/>Company URL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compurl. "<br/><br/>Company Loc. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br/><br/>Designation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$designation."<br/><br/>Industry Serviced &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$hire. "<br><br>Comments :<br><br>" .$msg. "<br><br>With Regards,<br>www.arrisventures.in";
+    // Always set content-type when sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From:".$email. "\r\n";
+    $success1=mail("rekha@arristeck.com",$subject,$body,$headers);
+    /*if( $success1== true ) {
+    echo "<script type='text/javascript'>alert('Mailqq Sent successfully');</script>";
+    }else {
+    echo "<script type='text/javascript'>alert('Unableqq to send mail');</script>";
+    }*/
+    }
+    ?>
+    <!--End-->
 
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
     <ul id="flexiselDemo3">

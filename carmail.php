@@ -82,7 +82,7 @@ if(isset($_POST['submit1'])) {
 		$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
 		$success=mail($email,$subject,$body,$headers);
 		if( $success== true ) {
-		echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
+		echo "<script type='text/javascript'>alert('Your resume is submitted successfully');</script>";
 		}else {
 		echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
 		}

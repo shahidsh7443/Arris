@@ -62,7 +62,7 @@ thead{font-weight:bold;}
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <a href="index.html"><img id="logo" src="img/logo.png" alt="ArrisTechnologies Logo" /></a>
+          <a href="index.html"><img id="logo" src="img/av.png" alt="ArrisTechnologies Logo" /></a>
         </div>
         <div class="span7"><!--Navigation-->
           <ul id="nav">
@@ -122,8 +122,8 @@ thead{font-weight:bold;}
 <h3><u>Address</u></h3>
 									<p style="width:102%;border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><b>Corporate Office :</b> #25, Old 22/1, 9th Cross, 5th Main, N R Colony, Bangalore - 560 019<br/><span >Address URL:</span> <a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arris">https://maptags.in/Arris</a><br>
 	 +91 7353775774&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color:#0000ff;" target="_blank" class="withicons" href="https://maptags.in/Arris">View Location</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:info@arristeck.com" style="color:#0000ff;">info@arristeck.com</a></p>
-<hr style="border:1px dashed black;">
-<p style="width:102%;"><b>Branch Office</b> : Manyata Embassy Business Park, Ground Floor E1 Block, Beech Building, Outer Ring Road, Bangalore - 560 045&nbsp;&nbsp;|&nbsp;&nbsp;+91 80 42764545<br><span style="color:#0000ff;">Address URL: </span><a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arrism">https://maptags.in/Arrism</a><br>
+<hr style="border:1px solid black;">
+<p style="width:102%;"><b>Branch Office</b> : Manyata Embassy Business Park, Ground Floor E1 Block, Beech Building, Outer Ring Road, Bangalore - 560 045&nbsp;&nbsp;|&nbsp;&nbsp;+91 80 42764545<br><span style="color:black;">Address URL: </span><a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arrism">https://maptags.in/Arrism</a><br>
 +91 7353530777&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color:#0000ff;" target="_blank" class="withicons" href="https://maptags.in/Arrism">View Location</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:anil@arristeck.com" style="color:#0000ff;">anil@arristeck.com</a></p>
 </span></p>
 </div><br />

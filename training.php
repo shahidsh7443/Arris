@@ -6,11 +6,11 @@
 <title>Home || ArrisTechnologies </title>
 
 <!-- Bootstrap -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
 
@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -37,7 +38,7 @@
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
 		$(document).ready(function(){
 			$('.slider8').bxSlider({
   				slideWidth: 800,
@@ -56,7 +57,7 @@
   				slideMargin: 10
  			});
 		});
-	</script>
+	</script>-->
 </head>
 
 <body>
@@ -66,7 +67,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/techlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/train.png" alt="ArrisTechnologies Logo" class="js trl"  />
 
         </div>
 
@@ -139,7 +140,7 @@
   		 <input  style="margin-top: 0px;" maxlength="50" type="email" class="form-control" id="email" name="email" placeholder="*Email Id" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/>
   	</div>
   	</div>
-  	<div class="col-sm-4 nocolrightpad" style="padding-right:0px;">
+  	<div class="col-sm-4 nocolrightpad">
   	<div class="col-sm-12">
   		 <textarea  rows="5" maxlength="500" class="form-control" id="msg" name="msg" placeholder="*Message" required></textarea>
    <input type="hidden" name="action" value="sendusmeg">
@@ -149,29 +150,135 @@
   	</div>
   </div>
     <div class="row-fluid rff">
-	<label class="col-sm-8 " for="inputfile" style="width:190px;">Paste Your Profile:<br><br><br><br>OR </label><!--<span style="float:left;font-weight:bold">:</span>-->
-		<div class="col-sm-9 form-group">
-			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -130px;"></textarea>
+	<label class="col-sm-4 pp" for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
+		<div class="col-sm-8 form-group">
+			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px;"></textarea>
 		</div>
+      <div class="col-lg-2 or"><p><b>OR</b></p></div>
       <div class="col-lg-12">
         <div class="form-group">
-          <label class="col-sm-8 " for="inputfile" style="width:144px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
-    		<input  type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf"/>
+          <label class="col-sm-8 atc" for="inputfile" style="width:178px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
+          <div class="col-sm-8 form-group">
+    		<input  type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-17px;"/></div>
     		</div>
       </div>
       </div>
-          <div class="row-fluid">
+          <!--<div class="row-fluid">
             <div class="span2 offset5">
 <button name="submit" align="center" class="btn btn-lg btn-default btn-block" type="submit" width="50px"  onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Contact Us</button></div>
-          </div>
+</div>-->
+          <div style="text-align:center;">
+        		<div class="col-sm-offset-0 col-sm-12">
+        			<button type="submit" name="submit"  class="btn btn-default submit_button" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
+        			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Reset</button>
+        		</div>
+        	</div>
     </form>
 </div><!-- end of 'contact_form' -->
 </div>
 </div>      </div>
-    </div>
+</div>
+<!--  Mail --->
+<?php
+if(isset($_POST['submit'])) {
+require 'PHPMailer/PHPMailerAutoload.php';
+$name = $_POST['name'];
+$location= $_POST['location'];
+$mobile= $_POST['mobile'];
+$email= $_POST['email'];
+$msg= $_POST['msg'];
+$email1="anil@arristeck.com";
+$email2="arvind@arristeck.com";
+$pp=$_POST['pasteprofile'];
+$subject = "Your profile submission acknowledgement";
+$body = "Dear " .$name.","."<br><br>"."Thanks for sharing your profile. One of our managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>ArrisVentures Team<br>www.arrisventures.in";
+// Always set content-type when sending HTML email
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
+$success=mail($email,$subject,$body,$headers);
+if( $success== true ) {
+echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
+}else {
+echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
+}
+if($pp!="")
+{
+  $res="Please find the resume pasted for your kind perusal and further processing.";
+}
+else {
+  $res="Please find the resume attached for your kind perusal and further processing.";
+}
+$mailfrom = $_POST['email'];
+try {
+    $mail = new PHPMailer;
+    $mail->FromName  = $_POST['name'];
+    $to_email ="rekha@arristeck.com";
+    $mail->AddAddress($to_email);
+    $mail->From     = $mailfrom;
+    $mail->Subject  = "Trainer Profile ";
+  $body ="Dear Rekha,<br><br>You have received an online Trainer Profile from ".$name. " with the following details.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$msg."<br><br>Resume:<br><br>".$res. "<br><br>" .$pp. "<br><br>With Regards,<br>www.arrisventures.in";
+    $mail->MsgHTML($body);
+    $mail->AddCC($email1);
+    $mail->AddCC($email2);
+    $mail->IsSendmail();
+    $mail->AddReplyTo($mailfrom);
+    $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+    $mail->WordWrap   = 80;
+    $mail->AddAttachment($_FILES['profile']['tmp_name'], $_FILES['profile']['name']);
+    $mail->IsHTML(true);
+    $mail->Send();
+      }
+catch (phpmailerException $e) {
+  echo $e->errorMessage();
+}
+}
+?>
 
+<!-- End Mail -->
+<p class="sep2" style="border:3px solid #00b8bb;"></p>
+<ul id="flexiselDemo3">
+      <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>
+      <li><a href="http://www.accionlabs.com" target="_blank"><img src="img/clients/separate page/accion.jpg"/></a></li>
+        <li><a href="http://www.arisglobal.com" target="_blank"><img src="img/clients/separate page/AG.jpg" /></a></li>
+      <li><a href="http://www.adp.in" target="_blank"><img src="img/clients/separate page/adp.png" /></a></li>
+        <li><a href="http://www.artechinfo.in" target="_blank"><img src="img/clients/separate page/artech.jpg"/></a></li>
+        <li><a href="http://www.bensoncompany.com" target="_blank"><img src="img/clients/separate page/benson.jpg"/></a></li>
+        <li><a href="http://www.boschindia.com" target="_blank"><img src="img/clients/separate page/bosch.jpg" /></a></li>
+        <li><a href="http://www.uberdiagnostics.com" target="_blank"><img src="img/clients/separate page/cardio.jpg" /></a></li>
+        <li><a href="http://www.cheersin.com" target="_blank"><img src="img/clients/separate page/cheers.jpg" /></a></li>
+        <li><a href="http://www.eclinicalsol.com" target="_blank"><img src="img/clients/separate page/clinic.jpg"/></a></li>
+        <li><a href="http://www.depusa.com" target="_blank"><img src="img/clients/separate page/dep.jpg" /></a></li>
+        <li><a href="http://www.etherglobal.com" target="_blank"><img src="img/clients/separate page/ether.jpg" /></a></li>
+        <li><a href="http://www.gmrgroup.in" target="_blank"><img src="img/clients/separate page/GMR.jpg" /></a></li>
+        <li><a href="http://www.greytip.com" target="_blank"><img src="img/clients/separate page/greytip.jpg"/></a></li>
+        <li><a href="http://www.bizprout.com" target="_blank"><img src="img/clients/separate page/Bizsprout.jpg" /></a></li>
+        <li><a href="http://www.hombalegroup.com" target="_blank"><img src="img/clients/separate page/hombale.jpg"/></a></li>
+        <li><a href="http://www.campussutra.com" target="_blank"><img src="img/clients/separate page/CampusSutra.jpg"/></a></li>
+        <li><a href="http://www.ibm.com" target="_blank"><img src="img/clients/separate page/ibm.jpg"/></a></li>
+        <li><a href="http://www.infogain.com" target="_blank"><img src="img/clients/separate page/infogain.jpg"/></a></li>
+        <li><a href="http://www.itcinfotech.com" target="_blank"><img src="img/clients/separate page/itc.jpg"/></a></li>
+        <li><a href="http://www.ivanti.com" target="_blank"><img src="img/clients/separate page/ivanti.jpg"/></a></li>
+        <li><a href="http://www.jupitergroup.co.in" target="_blank"><img src="img/clients/separate page/jupiter.jpg"/></a></li>
+        <li><a href="http://www.Keyfalcon" target="_blank"><img src="img/clients/separate page/keyfalcon.jpg"/></a></li>
+        <li><a href="http://www.lumenatix.com" target="_blank"><img src="img/clients/separate page/lumenatrix.jpg"/></a></li>                    <li><a href="http://www.targetgroup.com" target="_blank"><img src="img/clients/separate page/targetgroup.jpg"/></a></li>
+        <li><a href="http://www.mahindrafinance.com" target="_blank"><img src="img/clients/separate page/mahindra.jpg"/></a></li>
+        <li><a href="http://www.maintec.com" target="_blank"><img src="img/clients/separate page/maintec.jpg"/></a></li>
+        <li><a href="http://www.manthan.com" target="_blank"><img src="img/clients/separate page/manthan.jpg"/></a></li>
+        <li><a href="http://www.mavenir.com" target="_blank"><img src="img/clients/separate page/mave.jpg"/></a></li>
+        <li><a href="http://www.novonordisk.co.in" target="_blank"><img src="img/clients/separate page/novo.jpg"/></a></li>
+        <li><a href="http://www.poorvihousing.com" target="_blank"><img src="img/clients/separate page/poorvi.jpg"/></a></li>
+        <li><a href="http://www.pwc.in" target="_blank"><img src="img/clients/separate page/pwc.jpg"/></a></li>
+        <li><a href="http://www.segemai.com" target="_blank"><img src="img/clients/separate page/sege.jpg"/></a></li>
+        <li><a href="http://www.softtek.com" target="_blank"><img src="img/clients/separate page/soft.jpg"/></a></li>
+        <li><a href="http://www.sparcstudio.in/" target="_blank"><img src="img/clients/separate page/sparcStudio.jpg"/></a></li>
+        <li><a href="http://www.transwaters.com" target="_blank"><img src="img/clients/separate page/trans.jpg"/></a></li>
+        <li><a href="http://www.zaggle.in" target="_blank"><img src="img/clients/separate page/zaggle.jpg"/></a></li>
+          <li><a href="http://www.incaastudio.com" target="_blank"><img src="img/clients/separate page/icaa.jpg"/></a></li>
+
+  </ul>
   <!-- Clients -->
-  <div class="row-fluid" id="clients_strip">
+  <!--<div class="row-fluid" id="clients_strip">
   		<div class="span1 hidden-phone"></div>
         <div class="span10">
             <div id='carousel_container' class="carousel slide" data-ride="carousel"  data-pause="hover">
@@ -219,7 +326,7 @@
               </div>
               </div>
     </div>
-  	</div><!-- end of Clients Strip -->
+  </div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
     <div class="row-fluid bn" id="bottom_nav">
@@ -306,10 +413,27 @@
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    </div>
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+          $("#flexiselDemo3").flexisel({
+              visibleItems: 3,
+              itemsToScroll: 1,
+              animationSpeed: 400,
+              infinite: true,
+              autoPlay: {
+                  enable: true,
+                  interval: 2000,
+                  pauseOnHover: true
+              }
+          });
+
+      });
+      </script>
+      <script type="text/javascript" src="js/jquery.flexisel.js"></script>
  <script type="text/javascript" src="js/nav.js"></script>
- <script type="text/javascript" src="js/validations.js"></script>
  <script type="text/javascript" src="js/actions.js"></script>
 </body>
 </html>

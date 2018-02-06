@@ -66,7 +66,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
 
         </div>
         <div class="span7 spaan7"><!--Navigation-->
@@ -91,7 +91,7 @@
   </div>
   <!-- Content -->  <!-- ***************** End of Main Content Area ************************** -->
   <div class="row-fluid">
-        <div class="text_content span10 offset1">
+        <div class="text_content span10 offset1 clicka">
           <!--Text Content-->
 <h1>Evaluation</h1>
   <p>Arris’s innovative technical interviews-as-a-service platform is designed to help hiring managers, recruiters and other decision-makers get true insight into a candidate’s technical prowess prior to investing a hiring manager’s time reviewing partially qualified resumes, coordinating a resource intensive panel interview, or footing the bill for face-to-face interview travel expenses.</p>
@@ -115,7 +115,7 @@ Hiring processes are often rooted in speed — but rushed, uninformed hiring dec
 
 <br><br>Are you ready to fast-track your hiring process?
 
-<br><br>To know more about our service offerings,<a href="evclients.php"> please mail us</a>
+<br><br>To know more about our service offerings,<a href="evclients.php#frmm"> please mail us.</a>
 
 </p>        </div>
     </div>

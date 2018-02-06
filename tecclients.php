@@ -64,7 +64,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/techlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/train.png" alt="ArrisTechnologies Logo" class="js trl"  />
 
         </div>
 
@@ -101,10 +101,10 @@
   <h5>Nitesh M, Program Manager – Pharmaceutical Company, Bangalore
 Trainers Testimonial</h5>
 <p class="sep"></p>
-<p>If you are looking for any Corporate Training for your organisation, please write to us on your requirement.</p>
+<p id="frmm">If you are looking for any Corporate Training for your organisation, please write to us on your requirement.</p>
 <div class="row-fluid tcc">  <!--action="http://projects.razorbee.com/arrisventures/ctraining.php" target="_blank" /arristechn/ctraining.php-->
   <form id="form"  name="form" method="POST" class="tcform" action="ctraining.php" target="_blank">
-    <h1>Looking for Corporate Training?</h1>
+    <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">LOOKING FOR CORPORATE TRAINING?</h2>
   	<div class="form-group">
   		<div class="col-sm-6">
   			<input type="text" class="form-control" maxlength="50" id="namef" name="namef" pattern="^[a-zA-Z][\']{1}[a-zA-Z]|[a-zA-Z][a-zA-Z]$" placeholder="*Enter First Name" required/>
@@ -168,7 +168,6 @@ Trainers Testimonial</h5>
   		<div class="col-sm-offset-0 col-sm-12">
   			<button type="submit" name="submit3" id="submit_button" class="btn btn-info submit_button" onclick="send_mail2_contact()">Submit</button>
   			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning">Reset</button>
-  			<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
   		</div>
   	</div>
 

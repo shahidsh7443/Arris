@@ -57,7 +57,7 @@ h4{text-align:center; border-bottom:3px double #00b8bb; border-top:3px double #0
 
 		$( document ).ready(function() {
 			$('a').on('click',function() {
-				
+
 		    if(this.id=="arristech")
 		    {
 		        $("#cat").val("arristech");
@@ -86,14 +86,37 @@ h4{text-align:center; border-bottom:3px double #00b8bb; border-top:3px double #0
 				{
 					$("#cat").val("arriswe");
 				}
-				else
+        else if(this.id=="arrisfoo")
 				{
 					$("#cat").val("arrisfoo");
+				}
+				else
+				{
+					$("#cat").val("general");
 				}
 		});
 		});
 $(function(){
 
+
+$("#mailform").submit(function(e){
+e.preventDefault();
+$.ajax({
+                url: 'sendmail.php?sid='+Math.random(),
+                type: 'post',
+                data: $(this).serialize(),
+                success: function( aa ){
+$('#mailform')[0].reset();
+                  $("#xxxx").html(aa);
+
+               },
+                error: function(  ){
+                    alert( "error" );
+                }
+            });
+
+
+});
 	$(".submit").click(function(){
 		var id1=$(this).attr("id");
 			$('#select_category option[value=' +id1+ ']').prop('selected',true);
@@ -162,7 +185,7 @@ $(function()
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-        <a href="index.html"><img id="logo" src="img/logo.png" alt="ArrisTechnologies Logo" /></a>
+        <a href="index.html"><img id="logo" src="img/av.png" alt="ArrisTechnologies Logo" /></a>
         </div>
         <div class="span7"><!--Navigation-->
           <ul id="nav">
@@ -266,7 +289,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
             <div id="resume">
             <h3>Submit your Resume</h3>
             <h4>Fill in the following details:</h4>
-             <form method="post"  action="carmail.php" enctype="multipart/form-data" name="myform" target="_blank">
+             <form method="post"  enctype="multipart/form-data" name="myform" id="mailform">
             <div id="section1"><br />
             	<div class="row-fluid">
             	<div id="span12">
@@ -332,7 +355,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
             <span class="fileupload-preview"></span></div><span class="btn btn-file">
             	<span class="fileupload-new">Select file</span>
                 <span class="fileupload-exists">Change</span>
-                <input type="file" id="file" name="file" accept=".docx, .pdf, .rtf"/></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                <input type="file" id="file" name="file" accept=".docx, .pdf, .rtf, .xsl"/></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 </div>
 </div>
                 </div>
@@ -344,7 +367,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
              <div class="row-fluid">
             	<!--<div class="span3 hidden-phone"></div>-->
             	<a name="msg">
-                <!--<div class="span12" id="error_msg" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <!--<div class="span12" id="error_msg" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<?php echo $_SESSION['error_msg'];
                 		unset($_SESSION['error_msg']);?>
                 	</div>-->

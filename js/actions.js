@@ -16,69 +16,93 @@ function send_mail1_career()
   var cureg=/^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$/;
   var reg2=/^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$/;
   var desreg=/^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$/;
-  if(fname=="")
+$(".error").remove();
+var msg = "";
+if(fname=="")
   {
-    alert("Please enter your  name");
+    msg="Please enter your  name";
+    $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
   }
   else if(flen<3) {
-  alert("Enter more than 3 Characters");
+  msg ="Enter more than 3 Characters";
+  $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
   }
   else {
   if(!freg.test(fname)) {
-    alert("Not a valid  name");
+  msg="Not a valid  name";
     $("#fname").prop('autofocus', true);
+    $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
   }
-  }
+    }
+
   if(mob=="")
   {
-    alert("Please enter contact number");
+    msg="Please enter contact number";
+    $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else if(moblen<10)
   {
-    alert("Please enter a valid  contact number");
+    msg="Please enter a valid  contact number";
+    $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!regg3.test(mob)) {
-    alert("Not a valid contact number");
+    msg="Not a valid contact number";
     res1=0;
+    $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
+
   if(email=="")
   {
-    alert("Please enter your e-mail id");
+    msg="Please enter your e-mail id";
+      $("#email").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!reg4.test(email)) {
-    alert("Not a valid e-mail id");
+    msg="Not a valid e-mail id";
     res1=0;
+      $("#email").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
+
   if(cloc=="")
   {
-    alert("Please enter Location");
+    msg="Please enter Location";
+      $("#location").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!reg2.test(cloc)) {
-    alert("Not a valid location");
+    msg="Not a valid location";
     res1=0;
+      $("#location").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
+
   if(ct==null)
   {
-    alert("Please select business that you are looking for");
+    msg="Please select business that you are looking for";
+      $("#cat").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
+
   if(pr=="" && atr=="")
   {
     $("#msg").prop('required', true);
     $("#file").prop('required', true)
-    alert("Please paste your Resume or Attach your Resume");
+    msg="Please paste your Resume or Attach your Resume";
+      $("#msg").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
+
   if(pr=="" && atr!="")
   {
     $("#msg").prop('required', false);
   }
-  else {
-    $("#file").prop('required', false)
+if(pr!="" && atr=="")
+  {
+    $("#file").prop('required', false);
   }
 }
 function send_mail3_contact()
@@ -101,97 +125,121 @@ function send_mail3_contact()
   var cureg=/^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$/;
   var reg2=/^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$/;
   var desreg=/^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$/;
+  $(".error").remove();
+  var msg = "";
   if(fname=="")
-  {
-    alert("Please enter your First name");
-  }
-  else if(flen<3) {
-  alert("Enter more than 3 Characters");
-  }
-  else {
-  if(!freg.test(fname)) {
-    alert("Not a valid First name");
-    $("#fname").prop('autofocus', true);
-  }
-  }
+    {
+      msg="Please enter your  name";
+      $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
+    }
+    else if(flen<3) {
+    msg ="Enter more than 3 Characters";
+    $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
+    }
+    else {
+    if(!freg.test(fname)) {
+    msg="Not a valid  name";
+      $("#fname").prop('autofocus', true);
+      $("#name").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
+
+    }
+      }
   if(des=="")
   {
-    alert("Please enter your designation");
+    msg="Please enter your designation";
+      $("#desig").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!desreg.test(des)) {
-    alert("Not a valid designation");
+    msg="Not a valid designation";
     res1=0;
+      $("#desig").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(mob=="")
   {
-    alert("Please enter contact number");
+    msg="Please enter contact number";
+      $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else if(moblen<10)
   {
-    alert("Please enter a valid  contact number");
+    msg="Please enter a valid  contact number";
+      $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!regg3.test(mob)) {
-    alert("Not a valid contact number");
+    msg="Not a valid contact number";
     res1=0;
+      $("#mobile").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(email=="")
   {
-    alert("Please enter your e-mail id");
+    msg="Please enter your e-mail id";
+      $("#email").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!reg4.test(email)) {
-    alert("Not a valid e-mail id");
+    msg="Not a valid e-mail id";
     res1=0;
+      $("#email").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(cname=="")
   {
-    alert("Please enter your Company name");
+    msg="Please enter your Company name";
+      $("#compname").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!creg.test(cname)) {
-    alert("Not a valid Company name");
+    msg="Not a valid Company name";
     $("#cname").prop('autofocus', true);
+    $("#compname").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(curl=="")
   {
-    alert("Please enter your Company Url");
+    msg="Please enter your Company Url";
+    $("#compurl").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!cureg.test(curl)) {
-    alert("Not a valid Company Url");
+    msg="Not a valid Company Url";
     $("#curl").prop('autofocus', true);
+    $("#compurl").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(cloc=="")
   {
-    alert("Please enter Location");
+    msg="Please enter Location";
+    $("#cloc").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!reg2.test(cloc)) {
-    alert("Not a valid location");
+    msg="Not a valid location";
     res1=0;
+    $("#cloc").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
 
   if(ins=="")
   {
-    alert("Please enter industry serviced");
+    msg="Please enter industry serviced";
+    $("#hire").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   else {
   if(!desreg.test(ins)) {
-    alert("Not a valid industry serviced");
+    msg"Not a valid industry serviced";
     res1=0;
+    $("#hire").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
   }
   if(com=="")
   {
-    alert("Please enter comments");
+    msg="Please enter comments";
+    $("#com").closest("div").append("<span class='error' style='color:red;'>"+msg+"</span>");
   }
 }
 function send_mail2_contact()

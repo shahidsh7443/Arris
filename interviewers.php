@@ -75,7 +75,7 @@
 	<!-- Header Row -->
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -101,7 +101,6 @@
         <div class="text_content span10 offset1">
           <!--Text Content-->
           <h1>Interviewers</h1>
-          <p>BECOME AN INTERVIEWER</p>
           <h3>Get Paid for Interviewing Colleagues</h3>
   <p>Interested in earning extra cash? Enjoy communicating and having stimulating technical conversations with peers? Interested in elevating standards for hiring and tired of the status quo in the hiring practices within your profession? Join the Arris network of technical interviewers and pre-screen IT candidates for competency and experience before hiring managers receive a qualified shortlist — a revolutionary concept. Interview assignments typically require a commitment of 45-60 minutes, which can be tailored to fit into your busy schedule.</p>
   <p class="sep"></p>
@@ -159,7 +158,7 @@
   		 <input  style="margin-top: 0px;" type="email" class="form-control" id="email" name="email" placeholder="*Email Id"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/>
   	</div>
   	</div>
-  	<div class="col-sm-4 nocolrightpad" style="padding-right:0px;">
+  	<div class="col-sm-4 nocolrightpad">
   	<div class="col-sm-12">
   		 <textarea  rows="5" class="form-control" id="msg" name="msg" placeholder="*Message" required></textarea>
    <input type="hidden" name="action" value="sendusmeg">
@@ -181,27 +180,91 @@
       </div>
     </div>-->
     <div class="row-fluid rff">
-	<label class="col-sm-8 " for="inputfile" style="width:190px;">Paste Your Profile:<br><br><br><br>OR </label><!--<span style="float:left;font-weight:bold">:</span>-->
-		<div class="col-sm-9 form-group">
-			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -130px;"></textarea>
+	<label class="col-sm-4 " for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
+		<div class="col-sm-8 form-group">
+			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px;"></textarea>
 		</div>
+    <div class="col-lg-2 or"><p><b>OR</b></p></div>
       <div class="col-lg-12">
         <div class="form-group">
-          <label class="col-sm-8 " for="inputfile" style="width:144px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
-    		<input type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" />
+          <label class="col-sm-8 " for="inputfile" style="width:200px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
+          	<div class="col-sm-8 form-group">
+    		<input type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-37px;"/></div>
     		</div>
       </div>
       </div>
-          <div class="row-fluid">
+          <!--<div class="row-fluid">
             <div class="span2 offset5">
 <button name="submit" align="center" class="btn btn-lg btn-default btn-block" type="submit" width="50px" onclick="send_mail1_contact()"  style="margin-top:25px;height:40px;font-size:18px;width:125px;">Contact Us</button></div>
-          </div>
+</div>-->
+<div style="text-align:center;">
+        		<div class="col-sm-offset-0 col-sm-12">
+        			<button type="submit" name="submit" class="btn btn-default submit_button" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
+        			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Reset</button>
+        		</div>
+        	</div>
     </form>
 </div><!-- end of 'contact_form' -->
 </div>
 </div>      </div>
     </div>
-
+<!-- Mail -->
+<?php
+if(isset($_POST['submit'])) {
+require 'PHPMailer/PHPMailerAutoload.php';
+$name = $_POST['name'];
+$location= $_POST['location'];
+$mobile= $_POST['mobile'];
+$email= $_POST['email'];
+$msg= $_POST['msg'];
+$pp=$_POST['pasteresume'];
+$email1="anil@arristeck.com";
+$email2="arvind@arristeck.com";
+$subject = "Your resume submission acknowledgement";
+$body = "Dear ".$name.","."<br><br>"."Thanks for sharing your  resume. One of our managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>ArrisVentures Team<br>www.arrisventures.in";
+// Always set content-type when sending HTML email
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= "From:rekha@arristeck.com". "\r\n";
+$success=mail($email,$subject,$body,$headers);
+if( $success== true ) {
+echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
+}else {
+echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
+}
+if($pp!="")
+{
+  $res="Please find the resume pasted for your kind perusal and further processing.";
+}
+else {
+  $res="Please find the resume attached for your kind perusal and further processing.";
+}
+$mailfrom = $_POST['email'];
+try {
+    $mail = new PHPMailer;
+    $mail->FromName   = $_POST['name'];
+    $to_email ="rekha@arristeck.com";
+    $mail->AddAddress($to_email);
+    $mail->From       = $mailfrom;
+    $mail->Subject  = "Trainer Profile ";
+  $body ="Dear Rekha,<br><br>You have received an online Interviewer Resume from ".$name. " with the following details.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$msg."<br><br>Resume:<br><br>".$res. "<br><br>" .$pp. "<br><br>With Regards,<br>www.arrisventures.in";
+    $mail->MsgHTML($body);
+    $mail->IsSendmail();
+    $mail->AddCC($email1);
+    $mail->AddCC($email2);
+    $mail->AddReplyTo($mailfrom);
+    $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
+    $mail->WordWrap   = 80;
+    $mail->AddAttachment($_FILES['resume']['tmp_name'], $_FILES['resume']['name']);
+    $mail->IsHTML(true);
+    $mail->Send();
+      }
+catch (phpmailerException $e) {
+  echo $e->errorMessage();
+}
+}
+?>
+<!--End -->
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
     <ul id="flexiselDemo3">
           <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>

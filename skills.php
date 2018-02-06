@@ -7,7 +7,10 @@
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
 
@@ -16,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -31,7 +35,7 @@
      	alert("This website is best viewed in browsers Internet Explorer 8 and above. Kindly update your browser or view the website on Mozilla Firefox or Google Chrome");
      </script>
 <![endif]-->
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <!--  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
     <script type="text/javascript">
@@ -53,7 +57,7 @@
   				slideMargin: 10
  			});
 		});
-	</script>
+	</script>-->
 </head>
 
 <body>
@@ -63,7 +67,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/techlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/train.png" alt="ArrisTechnologies Logo" class="js trl"  />
 
         </div>
 
@@ -92,19 +96,19 @@
 <p>Following are the Technical and Non-Technical skills under which ArrisTrraining conducts training.<p>
 <h3 class="hh3">Technical Trainings:</h3>
   <p class="skillp">
-
-	<b>Big Data & Hadoop :</b> Basics, Analytics, CloudEra Designing, Administration & Essentials.<br>
-	<b>Dev Ops :</b> Configuration Management, Automation and Deployment Tools & Continuous Build & Integration.<br>
-	<b>Java Technologies :</b> Basic, Core and Advanced Java.<br>
-	<b>Mainframe Technologies :</b> Cobol, CICS, JCL, DB2, IMS DB, Oracle, AS400, VSAM.<br>
-	<b>SAP :</b> ABAP, FICO, HANA, BO, BI, BW, HR, MM, CRM.<br>
-	<b>Programming Languages :</b> Objective C / C++ ,  JAVA, J2ME,  Mobile SDK , Action Script , C# .NET / VB .NET , C/ C++ , Visual Studio.<br>
-	<b>Mobile Technologies :</b> PHP / Ajax, Adobe AIR / Flex, JQuery,  HTML 5, Silverlight, GWT,  Visual Studio .NET 2010, Adobe Flex Builder, Eclipse + Specific Mobile Platform Plugin’s.<br>
-	<b>Cloud Computing :</b> AWS, MS-Azure, Google Apps Engine, Cloud Security & Salesforce.<br>
-	<b>Software Testing :</b> Manual, Skill Test, Magento, Load Runner, UI Testing, Mobile App Testing, Security Testing, Cloud Apps Testing.<br>
-	<b>Project Management :</b> Agile, ICAgile and Scrum, PMP, Prince2, PgM, PMI-ACP, ITIL, COBIT, IIBA, SFIA.<br>
-	<b>Quality </b>: CMMI, ISO, Six Sigma.<br>
-	<b>Others :</b> Sales force, Veeva CRM and Veeva Vault, Blue Prism.
+<ul class="sk">
+	<li><b>Big Data & Hadoop :</b> Basics, Analytics, CloudEra Designing, Administration & Essentials.<br></li>
+  <li><b>Dev Ops :</b> Configuration Management, Automation and Deployment Tools & Continuous Build & Integration.<br></li>
+	<li><b>Java Technologies :</b> Basic, Core and Advanced Java.<br></li>
+	<li><b>Mainframe Technologies :</b> Cobol, CICS, JCL, DB2, IMS DB, Oracle, AS400, VSAM.<br></li>
+	<li><b>SAP :</b> ABAP, FICO, HANA, BO, BI, BW, HR, MM, CRM.<br></li>
+	<li><b>Programming Languages :</b> Objective C / C++ ,  JAVA, J2ME,  Mobile SDK , Action Script , C# .NET / VB .NET , C/ C++ , Visual Studio.<br></li>
+	<li><b>Mobile Technologies :</b> PHP / Ajax, Adobe AIR / Flex, JQuery,  HTML 5, Silverlight, GWT,  Visual Studio .NET 2010, Adobe Flex Builder, Eclipse + Specific Mobile Platform Plugin’s.<br></li>
+	<li><b>Cloud Computing :</b> AWS, MS-Azure, Google Apps Engine, Cloud Security & Salesforce.<br></li>
+	<li><b>Software Testing :</b> Manual, Skill Test, Magento, Load Runner, UI Testing, Mobile App Testing, Security Testing, Cloud Apps Testing.<br></li>
+	<li><b>Project Management :</b> Agile, ICAgile and Scrum, PMP, Prince2, PgM, PMI-ACP, ITIL, COBIT, IIBA, SFIA.<br></li>
+	<li><b>Quality </b>: CMMI, ISO, Six Sigma.<br></li>
+	<li><b>Others :</b> Sales force, Veeva CRM and Veeva Vault, Blue Prism.</li></ul>
 
 </p>
 <p>List goes on….! We cover all the technologies from basic till the cutting edge!
@@ -160,9 +164,49 @@
 </div>
         </div>
     </div>
+    <p class="sep2" style="border:3px solid #00b8bb;"></p>
+    <ul id="flexiselDemo3">
+          <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>
+          <li><a href="http://www.accionlabs.com" target="_blank"><img src="img/clients/separate page/accion.jpg"/></a></li>
+            <li><a href="http://www.arisglobal.com" target="_blank"><img src="img/clients/separate page/AG.jpg" /></a></li>
+          <li><a href="http://www.adp.in" target="_blank"><img src="img/clients/separate page/adp.png" /></a></li>
+            <li><a href="http://www.artechinfo.in" target="_blank"><img src="img/clients/separate page/artech.jpg"/></a></li>
+            <li><a href="http://www.bensoncompany.com" target="_blank"><img src="img/clients/separate page/benson.jpg"/></a></li>
+            <li><a href="http://www.boschindia.com" target="_blank"><img src="img/clients/separate page/bosch.jpg" /></a></li>
+            <li><a href="http://www.uberdiagnostics.com" target="_blank"><img src="img/clients/separate page/cardio.jpg" /></a></li>
+            <li><a href="http://www.cheersin.com" target="_blank"><img src="img/clients/separate page/cheers.jpg" /></a></li>
+            <li><a href="http://www.eclinicalsol.com" target="_blank"><img src="img/clients/separate page/clinic.jpg"/></a></li>
+            <li><a href="http://www.depusa.com" target="_blank"><img src="img/clients/separate page/dep.jpg" /></a></li>
+            <li><a href="http://www.etherglobal.com" target="_blank"><img src="img/clients/separate page/ether.jpg" /></a></li>
+            <li><a href="http://www.gmrgroup.in" target="_blank"><img src="img/clients/separate page/GMR.jpg" /></a></li>
+            <li><a href="http://www.greytip.com" target="_blank"><img src="img/clients/separate page/greytip.jpg"/></a></li>
+            <li><a href="http://www.bizprout.com" target="_blank"><img src="img/clients/separate page/Bizsprout.jpg" /></a></li>
+            <li><a href="http://www.hombalegroup.com" target="_blank"><img src="img/clients/separate page/hombale.jpg"/></a></li>
+            <li><a href="http://www.campussutra.com" target="_blank"><img src="img/clients/separate page/CampusSutra.jpg"/></a></li>
+            <li><a href="http://www.ibm.com" target="_blank"><img src="img/clients/separate page/ibm.jpg"/></a></li>
+            <li><a href="http://www.infogain.com" target="_blank"><img src="img/clients/separate page/infogain.jpg"/></a></li>
+            <li><a href="http://www.itcinfotech.com" target="_blank"><img src="img/clients/separate page/itc.jpg"/></a></li>
+            <li><a href="http://www.ivanti.com" target="_blank"><img src="img/clients/separate page/ivanti.jpg"/></a></li>
+            <li><a href="http://www.jupitergroup.co.in" target="_blank"><img src="img/clients/separate page/jupiter.jpg"/></a></li>
+            <li><a href="http://www.Keyfalcon" target="_blank"><img src="img/clients/separate page/keyfalcon.jpg"/></a></li>
+            <li><a href="http://www.lumenatix.com" target="_blank"><img src="img/clients/separate page/lumenatrix.jpg"/></a></li>                    <li><a href="http://www.targetgroup.com" target="_blank"><img src="img/clients/separate page/targetgroup.jpg"/></a></li>
+            <li><a href="http://www.mahindrafinance.com" target="_blank"><img src="img/clients/separate page/mahindra.jpg"/></a></li>
+            <li><a href="http://www.maintec.com" target="_blank"><img src="img/clients/separate page/maintec.jpg"/></a></li>
+            <li><a href="http://www.manthan.com" target="_blank"><img src="img/clients/separate page/manthan.jpg"/></a></li>
+            <li><a href="http://www.mavenir.com" target="_blank"><img src="img/clients/separate page/mave.jpg"/></a></li>
+            <li><a href="http://www.novonordisk.co.in" target="_blank"><img src="img/clients/separate page/novo.jpg"/></a></li>
+            <li><a href="http://www.poorvihousing.com" target="_blank"><img src="img/clients/separate page/poorvi.jpg"/></a></li>
+            <li><a href="http://www.pwc.in" target="_blank"><img src="img/clients/separate page/pwc.jpg"/></a></li>
+            <li><a href="http://www.segemai.com" target="_blank"><img src="img/clients/separate page/sege.jpg"/></a></li>
+            <li><a href="http://www.softtek.com" target="_blank"><img src="img/clients/separate page/soft.jpg"/></a></li>
+            <li><a href="http://www.sparcstudio.in/" target="_blank"><img src="img/clients/separate page/sparcStudio.jpg"/></a></li>
+            <li><a href="http://www.transwaters.com" target="_blank"><img src="img/clients/separate page/trans.jpg"/></a></li>
+            <li><a href="http://www.zaggle.in" target="_blank"><img src="img/clients/separate page/zaggle.jpg"/></a></li>
+              <li><a href="http://www.incaastudio.com" target="_blank"><img src="img/clients/separate page/icaa.jpg"/></a></li>
 
+      </ul>
   <!-- Clients -->
-  <div class="row-fluid" id="clients_strip">
+  <!--<div class="row-fluid" id="clients_strip">
   		<div class="span1 hidden-phone"></div>
         <div class="span10">
             <div id='carousel_container' class="carousel slide" data-ride="carousel"  data-pause="hover">
@@ -210,7 +254,7 @@
               </div>
               </div>
     </div>
-  	</div><!-- end of Clients Strip -->
+  </div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
     <div class="row-fluid bn" id="bottom_nav">
@@ -297,8 +341,27 @@
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
- <script type="text/javascript" src="js/nav.js"></script>
+    </div>  <script type="text/javascript">
+
+      $(document).ready(function(){
+
+          $("#flexiselDemo3").flexisel({
+              visibleItems: 3,
+              itemsToScroll: 1,
+              animationSpeed: 400,
+              infinite: true,
+              autoPlay: {
+                  enable: true,
+                  interval: 2000,
+                  pauseOnHover: true
+              }
+          });
+
+      });
+      </script>
+       <script type="text/javascript" src="js/nav.js"></script>
+       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+
 </body>
 </html>

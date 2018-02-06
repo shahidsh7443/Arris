@@ -64,7 +64,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-                  <a href="arriswellness.php"><img id="logo" src="img/welogo.png" alt="ArrisWellness Logo" class="js" /></a>
+                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -5px;max-width:  103%;" class="js" /></a>
 
         </div>
 
@@ -90,11 +90,11 @@
         <div class="text_content span10 offset1">
           <!--Text Content-->
           <h1> Testimonials</h1>
-          <h3>Testimomial 1</h3>
+          <h4>Testimomial 1</h4>
 <p>I had pain in the back of my right shoulder from last 10 years & doctor had advised me not to drive 2 wheeler. However after applying this oil, now I am now comfortably riding 2 wheeler without any pain</p>
 <h5>S Prabhakar – Entrepreneur, Bangalore -<a href="mailto:s.prabhakar_42@yahoo.com"> s.prabhakar_42@yahoo.com</a></h5>
 <p class="sep"></p>
-<h3>Testimomial 2</h3>
+<h4>Testimomial 2</h4>
 <p>From last few years, I was not able to get up quickly and had deep pain in my things and knee. I used to get pulling pain in my thighs. I started using this oil from last 2 months & now hardly I suffer from the pain I used to. Thanks for this wonderful oil. </p>
 <h5>Anjana Devi – Homemaker, Hassan -<a href="mailto:anjanadevi@yahoo.co.in"> anjanadevi@yahoo.co.in</a></h5>
 
@@ -153,7 +153,7 @@
   </div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
-    <div class="row-fluid" id="bottom_nav">
+    <div class="row-fluid wel" id="bottom_nav">
         <div class="span1 offset1">
         	<a href="index.html"><span class="bottom_nav_bold">Home</span></a>
         </div>

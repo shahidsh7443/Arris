@@ -39,7 +39,7 @@
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/techlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/train.png" alt="ArrisTechnologies Logo" class="js trl"  />
 
         </div>
 

@@ -65,7 +65,7 @@
 	<!-- Header Row -->
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evlogo.png" alt="ArrisTechnologies Logo" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -93,32 +93,30 @@
           <h1>Benefits</h1>
 <p>By partnering with ArrisEvaluation, following benefits can be derived</p>
 <h4>Gaps in Expertise</h4>
-  <p class="skillp">
 Trust insight on candidate strengths and weaknesses directly from hands-on IT professionals with relevant stack experience.
-</p>
 <h4>Avoid Bad Hires</h4>
-  <p>Confirm technical competency and experience earlier in the recruiting life cycle to avoid costly hiring mismatches.
-  </p>
+Confirm technical competency and experience earlier in the recruiting life cycle to avoid costly hiring mismatches.
+
   <h4>  Volume Hiring Needs</h4>
-  <p>
+
     Embrace high-volume recruiting projects with confidence all stakeholders will be pleased with the screening process.
-</p>
+
 <h4>The Problem</h4>
-<p>Hiring can be a fraught process even if technical expertise isn’t required for a role, but when it is, the entire timeline becomes more complex. Hiring managers want a short list of the best candidates as fast as possible.
+Hiring can be a fraught process even if technical expertise isn’t required for a role, but when it is, the entire timeline becomes more complex. Hiring managers want a short list of the best candidates as fast as possible.
 
 <br><br>But how do you know if they have the skills to do the job? How do you coordinate multiple interviews involving your current team without dropping the ball on project deadlines? And how do you do all this within the right time frame?
-</p>
+
 <h4>Improve ROI</h4>
-<p>Boost return on interview by submitting pre-qualified candidates to hiring managers and hear them applaud.
-</p>
+Boost return on interview by submitting pre-qualified candidates to hiring managers and hear them applaud.
+
 <h4>Increase Diversity & Inclusion</h4>
-<p>
+
   Remove internal bias with independent, predictive ‘tech outs’ and reports with a common scoring rubric.
-</p>
+
 <h4>Gain Competitive Edge</h4>
-<p>
+
   Impress hiring managers and your colleagues by shortlisting the right professionals every time.
-</p>
+
 
         </div>
     </div>
