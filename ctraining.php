@@ -1,75 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
-<!-- google web font -->
-<link href='http://fonts.googleapis.com/css?family=Simonetta' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>ArrisTech || Under Construction</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="apple-itouch-icon" href="img/favicon.png">
-
-<script src="js/html5shiv.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">
-
-$(function(){
-	var height1=$('body').height()-574;
-	$("footer").css("margin-top",height1);
-})
-</script>
-<!--[if lt IE 9]>
-     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-     <script type="text/javascript">
-$(function(){
-	var height1=$('body').height()-513;
-	$("footer").css("margin-top",height1);
-})
-</script>
-<![endif]-->
-<style>
-	#error
-	{
-	margin-left: 100px;
-	position: relative;
-	top:30px;
-	color:blue;
-	font-weight: bold;
-	}
-</style>
-</head>
-
-<body>
-	<div class="row-fluid">
-    	<div class="span3 offset2"><img id="logo" src="img/logo.png" alt="ArrisTech Logo"></div>
-    </div>
-    <div class="row-fluid">
-    	<div class="span12"><div id="dashed"></div></div>
-    </div>
-    <div class="row-fluid">
-    	<div class="span6 offset3"><h2 id="construction">Thank you for Reaching us.</h2></div>
-    </div>
-    <div class="row-fluid">
-    	<div class="span4 offset4" id="panel">
-            <div id="white">
-            	<p> Thank you for reaching us.<br /><br />We have recieved your email, our support will reach you shortly.<br /><br /><a href="/arrisventures/tecclients.php"><< Back</a></p>
-                <!-- under construction hat -->
-            <!--<img id="hat" src="img/thankyou.png" class="hidden-phone"/>-->
-            </div>
-        </div>
-        </div>
-    </div>
 		<?php
-if(isset($_POST['submit3'])) {
-
-	$namef = $_POST['namef'];
-	$namel = $_POST['namel'];
+if(isset($_POST)) {
+ $namef = $_POST['namef'];
+ $namel = $_POST['namel'];
  $location= $_POST['cloc'];
  $mobile= $_POST['mobile'];
  $email= $_POST['email'];
@@ -87,13 +19,30 @@ $ct= $_POST['title'];
 		$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
 		$success=mail($email,$subject,$body,$headers);
 		if( $success== true ) {
-		echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
+		echo "1111";
 		}else {
-		echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
+		echo "222";
 		}
 		$subject = "Business Enquiry";
 		$body = "Dear Sales Team,<br><br>You have received an online business enquiry with the following details.<br/><br/>Fisrt Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$namef. "<br/><br/>Last Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:".$namel. "<br/><br/>Mobile No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$mobile. "<br/><br/>Email Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$email. "<br/><br/>Company Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compname."<br/><br/>Company URL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compurl. "<br/><br/>Company Loc. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br/><br/>Designation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$designation."<br/><br/>Industry Serviced &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$hire. "<br/><br/>Services Looking &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$ct. "<br><br>Comments <br><br>:" .$msg. "<br><br>With Regards,<br>www.arrisventures.in";
 		// Always set content-type when sending HTML email
+		$body ="<html><body>";
+		$body .= "<p>Dear Rekha,<br><br>You have received an online business enquiry with the following details.</p><br>";
+		$body .="<table>";
+		$body .="<tr><td>First Name</td><td>: &nbsp;" . $_POST['namef'] . "</td></tr>";
+		$body .="<tr><td>Last Name</td><td>: &nbsp;" . $_POST['namel'] . "</td></tr>";
+		$body .="<tr><td>Mobile No</td><td>: &nbsp;" . $_POST['mobile'] . "</td></tr>";
+		$body .="<tr><td>Email</td><td>: &nbsp;" . $_POST['email'] . "</td></tr>";
+		$body .="<tr><td>Company Name</td><td>: &nbsp;" . $_POST['compname'] . "</td></tr>";
+		$body .="<tr><td>Company URL</td><td>: &nbsp;" . $_POST['compurl'] . "</td></tr>";
+		$body .="<tr><td>Location</td><td>: &nbsp;" . $_POST['location'] . "</td></tr>";
+		$body .="<tr><td>Designation</td><td>: &nbsp;" . $_POST['desig'] . "</td></tr>";
+		$body .="<tr><td>Industry Serviced</td><td>: &nbsp;" . $_POST['hire'] . "</td></tr>";
+		$body .="<tr><td>Services Looking for</td><td>: &nbsp;" . $_POST['title'] . "</td></tr>";
+		$body .="<tr><td>Comments</td><td>: &nbsp;" . $_POST['msg'] . "</td></tr>";
+		$body .="</table>";
+		$body .="<p><br>With Regards,<br>www.arrisventures.in</p>";
+		$body .="</body></html>";
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= "From:".$email. "\r\n";
@@ -105,9 +54,3 @@ $ct= $_POST['title'];
 	}*/
 		}
 		?>
-
-    <footer>
-    	<span id="footer_text">2013 All Rights Reserved. ArrisVentures.</span>
-    </footer>
-</body>
-</html>

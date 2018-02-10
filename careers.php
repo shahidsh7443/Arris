@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
 <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
@@ -101,17 +101,27 @@ $(function(){
 
 $("#mailform").submit(function(e){
 e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
 $.ajax({
-                url: 'sendmail.php?sid='+Math.random(),
+                url: 'http://projects.razorbee.com/arrisventures/sendmail.php',
                 type: 'post',
-                data: $(this).serialize(),
-                success: function( aa ){
-$('#mailform')[0].reset();
-                  $("#xxxx").html(aa);
-
+                dataType : 'json',
+                           contentType: false,
+                           cache: false,
+                           processData:false,
+                data: form_data,
+                success: function(  ){
+                alert("successful");
                },
-                error: function(  ){
-                    alert( "error" );
+                error: function( aa ){
+                  var pr=$("#msg").val();
+                  if(pr=="")
+                  $("#upload").closest("div").append("<span class='error' style='color:white;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been Submitted</span>");
+                   else {
+                     $("#send").closest("div").append("<span class='error' style='color:white;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been Submitted</span>");
+                   }
+                   $('#mailform')[0].reset();
                 }
             });
 
@@ -295,22 +305,22 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
             	<div id="span12">
             	<div id="success"></div>
             	</div>
-            	<div class="row-fluid">
+            	<div class="row-fluid carr">
             	<div class="span2">Candidate Name*:</div>
-                <div class="span4"><input type="text" maxlength="50" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                <div class="span4"><input type="text" maxlength="50" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_career(this.id);" required/></div>
                 <div class="span2">Current Location*:</div>
-                <div class="span4"><input type="text" maxlength="50" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                <div class="span4"><input type="text" maxlength="50" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_career(this.id);" required/></div>
                 </div>
 
-                <div class="row-fluid">
+                <div class="row-fluid carr">
                 <div class="span2">Mobile Number*:</div>
                 <!-- style="width:167px" -->
-                <div class="span4"><input type="text" maxlength="10" name="mobile" id="mobile" pattern="^[789]\d{9}$" required/></div>
+                <div class="span4"><input type="text" maxlength="10" name="mobile" id="mobile" pattern="^[789]\d{9}$" onkeyup="send_mail1_career(this.id);" required/></div>
                 <div class="span2">Email-Id*:</div>
-                <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/></div>
+                <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" onkeyup="send_mail1_career(this.id);" required/></div>
                 </div>
 
-                <div class="row-fluid" id="category">
+                <div class="row-fluid carr" id="category">
                 <div class="span2">Business*:</div>
                 <div class="span4">
 								<select  name="cat" id="cat" required>
@@ -332,12 +342,12 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
                 <div class="span2"><input type="radio" name="cat"  value="arrisfoo"/>ArrisFooundation</div>-->
                 </div>
 
-                <div class="row-fluid">
+                <div class="row-fluid carr ">
                 <div class="span2">Paste Resume*:</div>
-                <div class="span10"><textarea name="msg" id="msg"></textarea></div>
+                <div class="span10"><textarea name="msg" onkeyup="send_mail1_career(this.id);" id="msg"></textarea></div>
                 </div>
 
-                <div class="row-fluid">
+                <div class="row-fluid carr">
                 <div class="span12 center"><input type="submit" value="SEND" id="send" name="submit1" onclick="send_mail1_career();"/></div>
                 </div>
             </div>
@@ -377,7 +387,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
 
             <div class="row-fluid">
             	<div class="span3 hidden-phone"></div>
-                <div class="span6 center"><input type="submit" value="UPLOAD" id="upload" name="submit1" onclick="return upload_validation();"/></div>
+                <div class="span6 center"><input type="submit" value="UPLOAD" id="upload" name="submit1" onclick="return send_mail1_career();"/></div>
                 </div>
             </div><!--end of section2-->
             </form>

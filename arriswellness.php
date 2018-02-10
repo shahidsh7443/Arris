@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -68,7 +68,7 @@
 
         </div>
 
-        <div class="span7 spaan7"><!--Navigation-->
+        <div class="span7 spaan7 welsp"><!--Navigation-->
           <ul id="nav">
           <li class="selected "><a href="arriswellness.php" class="tooltip1">Home<span class="hidden-phone tt">The Genesis</span></a></li>
             <li ><a href="products.php" class="tooltip1"><span>Products</span><span class="hidden-phone tt">Our Assets</span></a>

@@ -1,5 +1,15 @@
 <?php
-ech;o "send successfull";
+
+header('Access-Control-Allow-Origin: *');
+
+echo "send successfull";
+
+
+echo "----before---";
+
+print_r($_FILES);
+echo "-----after--";
+
 print_r($_POST);
 if(isset($_POST)) {
   echo "inside";
@@ -34,10 +44,22 @@ else if($cat=="arristech"){
 else if($cat=="arristrr"){
   $subject="Resume for opportunities with ArrisTrraining";
   }
-else if($cat=="arriswe"){
-  $subject="Resume for opportunities with ArrisWellness";
+else if($cat=="arrisev"){
+  $subject="Resume for opportunities with ArrisEvaluation";
   }
-else if($cat=="arrisfoo"){
+  else if($cat=="arrissy"){
+    $subject="Resume for opportunities with ArrisSystems";
+    }
+    else if($cat=="arriscon"){
+      $subject="Resume for opportunities with ArrisConsulting";
+      }
+      else if($cat=="arrispol"){
+        $subject="Resume for opportunities with ArrisPolymers";
+        }
+        else if($cat=="arriswe"){
+          $subject="Resume for opportunities with ArrisWellness";
+          }
+else {
   $subject="Resume for opportunities with ArrisFooundation";
   }
 try {
@@ -47,7 +69,19 @@ try {
     $mail->AddAddress($to_email);
     $mail->From       = $mailfrom;
     $mail->Subject  = $subject;
-  $body ="Dear Gaurav,<br><br>Please find the resume of " .$name. " with the following details. This resume has been submitted through Arris Website for your kind perusal and further processing.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Resume:<br><br>".$msg. "<br>";
+  /*$body ="Dear Gaurav,<br><br>Please find the resume of " .$name. " with the following details. This resume has been submitted through Arris Website for your kind perusal and further processing.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Resume:<br><br>".$msg. "<br>";*/
+    $body ="<html><body>";
+    $body .= "<p>Dear Recruiter,<br><br>Please find the resume of &nbsp; " . $_POST['name'] . " &nbsp; with the following details. This resume has been submitted through Arris Website for your kind perusal and further processing.</p><br>";
+    $body .="<table>";
+    $body .="<tr><td>Name</td><td>: &nbsp;" . $_POST['name'] . "</td></tr>";
+    $body .="<tr><td>Mobile No</td><td>: &nbsp;" . $_POST['mobile'] . "</td></tr>";
+    $body .="<tr><td>Email</td><td>: &nbsp;" . $_POST['email'] . "</td></tr>";
+    $body .="<tr><td>Location</td><td>: &nbsp;" . $_POST['location'] . "</td></tr>";
+    $body .="<tr><td>Resume</td><td>: &nbsp;</td></tr>";
+    $body .="</table>";
+    $body .="<p>" . $_POST['msg'] . "</p>";
+    $body .="<p><br>With Regards,<br>www.arrisventures.in</p>";
+    $body .="</body></html>";
     $mail->MsgHTML($body);
     $mail->IsSendmail();
     $mail->AddReplyTo($mailfrom);

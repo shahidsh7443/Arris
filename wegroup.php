@@ -42,7 +42,7 @@
 
         </div>
 
-        <div class="span7 spaan7"><!--Navigation-->
+        <div class="span7 spaan7 welsp"><!--Navigation-->
           <ul id="nav">
           <li ><a href="arriswellness.php" class="tooltip1">Home<span class="hidden-phone tt">The Genesis</span></a></li>
             <li ><a href="products.php" class="tooltip1"><span>Products</span><span class="hidden-phone tt">Our Asset</span></a>

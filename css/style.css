@@ -25,7 +25,7 @@ body{
 ul#nav{
 	margin-top:3em;
 	text-align:center;
-	width:96.4%;
+	width:97.6%;
 }
 ul#nav li{
 	display:inline-block;
@@ -339,7 +339,7 @@ font-size: 25px;
 	padding-top:3em;
 	padding-bottom:1.5em;
 	overflow:hidden;
-
+  padding-right: 40px;
 	-moz-border-bottom-left-radius:2.5em;
 	-webkit-border-bottom-left-radius:2.5em;
 	border-bottom-left-radius:2.5em;
@@ -486,7 +486,7 @@ border-bottom: 1px solid black;
 {
   width: 98%;
 padding-top: 50px;
-padding-left: 22px;
+padding-left: 15px;
 }
 .skill1 h1
 {
@@ -499,8 +499,196 @@ padding-left: 22px;
 #section2 .row-fluid .span5 {
     width: 38.8%;
 }
+#contact_form .span12
+{
+  margin-left: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#contact_form .offset5
+{
+  margin-left: 47%;
+}
+#contact_form .spoff
+{
+  margin-left: 47%;
+}
+.ctr1 .form-group
+{
+  margin-bottom: 35px;
+}
+.ctr1 span
+{
+  position: absolute;
+  left: 25px;
+  top:55px;
+}
+.ctr1 .col-sm-12 span
+{
+  top:125px;
+}
+.ctr1 .rsp span
+{
+  top:185px;
+}
+.vcon span
+{
+  position: absolute;
+  margin-top: 55px;
+  margin-left: -310px;
+}
+.vcon .span12 span
+{
+  position: relative;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.vcon .vrf
+{
+  margin-bottom: 25px;
+}
+
+.tcform span
+{
+  position: absolute;
+  top:55px;
+}
+.tcform .tct span
+{
+  position: absolute;
+  top: 135px;
+}
+#section1 .carr
+{
+  margin-bottom: 25px;
+}
+#section1 span
+{
+  position: absolute;
+  margin-top: 40px;
+  margin-left: -330px;
+}
+#section1 .span10 span
+{
+  position: relative;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.ctr1 .ivr span {
+    position: absolute;
+    left: -10px;
+    top: 180px;
+}
+.intv textarea
+{
+  margin-bottom: 40px;
+}
+.tcform .evf span {
+    position: absolute;
+    top: 135px;
+}
+.welsp #nav
+{
+  width: 95.4%;
+}
+#splash_section .ctr1
+{
+  padding-right: 50px;
+  padding-left: 50px;
+}
 @media only screen and (max-width:480px)
 {
+  .ctr1 .form-group {
+    margin-bottom: 0px !important;
+}
+.form-group {
+    margin-bottom: 0px !important;
+}
+  #splash_section .ctr1
+  {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  #contact_form .ctc
+  {
+    width: 120px !important;
+    margin-right: 0px !important;
+  }
+  #contact_form span {
+    left: 15px !important;
+}
+#contact_form textarea span {
+  left: 0px !important;
+}
+  #contact_form textarea
+  {
+    margin-bottom: 45px;
+  }
+  .ctm
+  {
+    text-align: center !important;
+  }
+  #contact_form input
+  {
+    margin-bottom: 30px;
+  }
+  .vcon .vrf {
+    margin-bottom: 0px !important;
+}
+  .ctr1 .ivr span {
+      left: 0px !important;
+  }
+  #section1 input,select
+  {
+    margin-bottom: 30px !important;
+  }
+  #section1 .carr
+  {
+    margin-bottom: 0px !important;
+  }
+  #section1 span
+  {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -305px;
+  }
+  .vcon span
+  {
+    position: absolute !important;
+    margin-top: 55px !important;
+    margin-left: 30px !important;
+  }
+  .vcon .span12 span
+  {
+    position: absolute !important;
+    margin-top: 205px !important;
+    margin-left: 35px !important;
+  }
+  #contact_form .offset5
+  {
+    margin-left: 0% !important;
+  }
+  #contact_form
+  {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+  #splash_section .vcon .span12
+  {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  #contact_form .span12
+  {
+    margin-left: 0px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  #contact_form  .row-fluid input
+  {
+    margin-left: 0px !important;
+    width: 100% !important;
+  }
   .pp
   {
     width: 250px !important;
@@ -569,9 +757,16 @@ line-height: 30px;
 
 border-bottom: 1px solid black;
 }
+#contact_form  .row-fluid input[type=file]
+{
+  height: 20px;
+  width: 40%;
+}
 #contact_form  .row-fluid input
 {
   height: 50px;
+  width: 100%;
+  margin-left: 0px;
 }
 #contact_form  .rff
 {
@@ -620,8 +815,11 @@ border-bottom: 1px solid black;
     color: #4fb5bd;
 }
 .row-fluid .spaan7 {
-    width: 58.6%;
+    width: 59.2%;
     padding-left: 150px;
+}
+.row-fluid .spann7 {
+    width: 57%;
 }
 .wel
 {

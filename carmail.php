@@ -98,10 +98,22 @@ if(isset($_POST['submit1'])) {
 		else if($cat=="arristrr"){
 			$subject="Resume for opportunities with ArrisTrraining";
 			}
-		else if($cat=="arriswe"){
-			$subject="Resume for opportunities with ArrisWellness";
+		else if($cat=="arrisev"){
+			$subject="Resume for opportunities with ArrisEvaluation";
 			}
-		else if($cat=="arrisfoo"){
+			else if($cat=="arrissy"){
+				$subject="Resume for opportunities with ArrisSystems";
+				}
+				else if($cat=="arriscon"){
+					$subject="Resume for opportunities with ArrisConsulting";
+					}
+					else if($cat=="arrispol"){
+						$subject="Resume for opportunities with ArrisPolymers";
+						}
+						else if($cat=="arriswe"){
+							$subject="Resume for opportunities with ArrisWellness";
+							}
+		else {
 			$subject="Resume for opportunities with ArrisFooundation";
 			}
 		try {

@@ -9,14 +9,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
 
-<!-- My Styles -->
-<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
-<link rel="stylesheet" type="text/css" href="css/clients.css" />
-<link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+  <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
+
+  <!-- My Styles -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+  <link rel="stylesheet" type="text/css" href="css/clients.css" />
+  <link rel="stylesheet" type="text/css" href="css/home.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
+  <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -36,25 +39,32 @@
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
     <script type="text/javascript">
-		$(document).ready(function(){
-			$('.slider8').bxSlider({
-  				slideWidth: 800,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10,
-				pause:5000
- 			});
+$( document ).ready(function() {
+$("#form").submit(function(e){
+e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
+$.ajax({
+                url: 'http://projects.razorbee.com/arrisventures/ctraining.php',
+                type: 'post',
+                dataType : 'json',
+                           contentType: false,
+                           cache: false,
+                           processData:false,
+                data: form_data,
+                success: function(  ){
+                alert("successful");
+               },
+                error: function( aa ){
+                  $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -60px;margin-left: -180px;'>Thank you for contacting us.</span>");
+                  $('#form')[0].reset();
+                }
+            });
 
-			$('.venture_slider').bxSlider({
-  				slideWidth: 500,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10
- 			});
-		});
-	</script>
+
+});
+});
+</script>
 </head>
 
 <body>
@@ -103,46 +113,46 @@ Trainers Testimonial</h5>
 <p class="sep"></p>
 <p id="frmm">If you are looking for any Corporate Training for your organisation, please write to us on your requirement.</p>
 <div class="row-fluid tcc">  <!--action="http://projects.razorbee.com/arrisventures/ctraining.php" target="_blank" /arristechn/ctraining.php-->
-  <form id="form"  name="form" method="POST" class="tcform" action="ctraining.php" target="_blank">
+  <form id="form"  name="form" method="POST" class="tcform" >
     <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">LOOKING FOR CORPORATE TRAINING?</h2>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="50" id="namef" name="namef" pattern="^[a-zA-Z][\']{1}[a-zA-Z]|[a-zA-Z][a-zA-Z]$" placeholder="*Enter First Name" required/>
+  			<input type="text" class="form-control" maxlength="50" id="namef" name="namef" pattern="^[a-zA-Z][\']{1}[a-zA-Z]|[a-zA-Z][a-zA-Z]$" placeholder="*Enter First Name" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="text" class="form-control" maxlength="50" id="namel" name="namel" pattern="^[a-zA-Z][\']{1}[a-zA-Z]|[a-zA-Z][a-zA-Z]$" placeholder="Enter Last Name" required/>
+  			<input type="text" class="form-control" maxlength="50" id="namel" name="namel" pattern="^[a-zA-Z][\']{1}[a-zA-Z]|[a-zA-Z][a-zA-Z]$" placeholder="Enter Last Name" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input  class="form-control" maxlength="20" id="mobile" name="mobile" pattern="^[789]\d{9}$" placeholder="*Enter Mobile Number" required/>
+  			<input  class="form-control" maxlength="20" id="mobile" name="mobile" pattern="^[789]\d{9}$" placeholder="*Enter Mobile Number" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="email" class="form-control" id="email" maxlength="50" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="*Enter Email Id" required/>
+  			<input type="email" class="form-control" id="email" maxlength="50" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="*Enter Email Id" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="50" id="compname" name="compname"  pattern="^[a-zA-Z0-9][-./&+\w\s]*$" placeholder="*Enter Company Name" required/>
+  			<input type="text" class="form-control" maxlength="50" id="compname" name="compname"  pattern="^[a-zA-Z0-9][-./&+\w\s]*$" placeholder="*Enter Company Name" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input style="" type="text" class="form-control" maxlength="100" id="compurl" name="compurl" pattern="^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$"  placeholder="*Enter Company URL" required/>
+  			<input style="" type="text" class="form-control" maxlength="100" id="compurl" name="compurl" pattern="^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$"  placeholder="*Enter Company URL" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="20" id="cloc" name="cloc" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" placeholder="*Enter Company Location" required/>
+  			<input type="text" class="form-control" maxlength="20" id="cloc" name="cloc" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" placeholder="*Enter Company Location" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="text" class="form-control" maxlength="50" id="desig" name="desig" pattern="^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Enter Deisignation" required/>
+  			<input type="text" class="form-control" maxlength="50" id="desig" name="desig" pattern="^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Enter Deisignation" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="50" id="hire" name="hire"  placeholder="Enter Industry Serviced" required/>
+  			<input type="text" class="form-control" maxlength="50" id="hire" name="hire"  placeholder="Enter Industry Serviced" onkeyup="send_mail2_contact(this.id);" required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-        <select class="form-control" name="title" id="ct"  required>
+        <select class="form-control" name="title" id="ct" onkeyup="send_mail2_contact(this.id);" required>
 <option selected="selected" disabled="disabled" value="">Which of the Corporate Trainings you are looking?</option>
 <option value="Technology Training ">Technology Training </option>
 <option value="Project Management Training">Project Management Training</option>
@@ -158,8 +168,8 @@ Trainers Testimonial</h5>
   	</div>
 
   	<div class="form-group">
-  		<div class="col-sm-12">
-  			<textarea style="width:100%;" rows="6" cols="44" id="com" name="com"  maxlength="1000"  placeholder="*Enter Comment..." required/></textarea>
+  		<div class="col-sm-12 tct">
+  			<textarea style="width:100%;" rows="6" cols="44" id="com" name="com"  maxlength="1000"  placeholder="*Enter Comment..." onkeyup="send_mail2_contact(this.id);" required/></textarea>
   		</div>
   	</div>
 
@@ -177,7 +187,48 @@ Trainers Testimonial</h5>
     </div>
 
   <!-- Clients -->
-  <div class="row-fluid" id="clients_strip">
+  <p class="sep2" style="border:3px solid #00b8bb;"></p>
+  <ul id="flexiselDemo3">
+        <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>
+        <li><a href="http://www.accionlabs.com" target="_blank"><img src="img/clients/separate page/accion.jpg"/></a></li>
+          <li><a href="http://www.arisglobal.com" target="_blank"><img src="img/clients/separate page/AG.jpg" /></a></li>
+        <li><a href="http://www.adp.in" target="_blank"><img src="img/clients/separate page/adp.png" /></a></li>
+          <li><a href="http://www.artechinfo.in" target="_blank"><img src="img/clients/separate page/artech.jpg"/></a></li>
+          <li><a href="http://www.bensoncompany.com" target="_blank"><img src="img/clients/separate page/benson.jpg"/></a></li>
+          <li><a href="http://www.boschindia.com" target="_blank"><img src="img/clients/separate page/bosch.jpg" /></a></li>
+          <li><a href="http://www.uberdiagnostics.com" target="_blank"><img src="img/clients/separate page/cardio.jpg" /></a></li>
+          <li><a href="http://www.cheersin.com" target="_blank"><img src="img/clients/separate page/cheers.jpg" /></a></li>
+          <li><a href="http://www.eclinicalsol.com" target="_blank"><img src="img/clients/separate page/clinic.jpg"/></a></li>
+          <li><a href="http://www.depusa.com" target="_blank"><img src="img/clients/separate page/dep.jpg" /></a></li>
+          <li><a href="http://www.etherglobal.com" target="_blank"><img src="img/clients/separate page/ether.jpg" /></a></li>
+          <li><a href="http://www.gmrgroup.in" target="_blank"><img src="img/clients/separate page/GMR.jpg" /></a></li>
+          <li><a href="http://www.greytip.com" target="_blank"><img src="img/clients/separate page/greytip.jpg"/></a></li>
+          <li><a href="http://www.bizprout.com" target="_blank"><img src="img/clients/separate page/Bizsprout.jpg" /></a></li>
+          <li><a href="http://www.hombalegroup.com" target="_blank"><img src="img/clients/separate page/hombale.jpg"/></a></li>
+          <li><a href="http://www.campussutra.com" target="_blank"><img src="img/clients/separate page/CampusSutra.jpg"/></a></li>
+          <li><a href="http://www.ibm.com" target="_blank"><img src="img/clients/separate page/ibm.jpg"/></a></li>
+          <li><a href="http://www.infogain.com" target="_blank"><img src="img/clients/separate page/infogain.jpg"/></a></li>
+          <li><a href="http://www.itcinfotech.com" target="_blank"><img src="img/clients/separate page/itc.jpg"/></a></li>
+          <li><a href="http://www.ivanti.com" target="_blank"><img src="img/clients/separate page/ivanti.jpg"/></a></li>
+          <li><a href="http://www.jupitergroup.co.in" target="_blank"><img src="img/clients/separate page/jupiter.jpg"/></a></li>
+          <li><a href="http://www.Keyfalcon" target="_blank"><img src="img/clients/separate page/keyfalcon.jpg"/></a></li>
+          <li><a href="http://www.lumenatix.com" target="_blank"><img src="img/clients/separate page/lumenatrix.jpg"/></a></li>                    <li><a href="http://www.targetgroup.com" target="_blank"><img src="img/clients/separate page/targetgroup.jpg"/></a></li>
+          <li><a href="http://www.mahindrafinance.com" target="_blank"><img src="img/clients/separate page/mahindra.jpg"/></a></li>
+          <li><a href="http://www.maintec.com" target="_blank"><img src="img/clients/separate page/maintec.jpg"/></a></li>
+          <li><a href="http://www.manthan.com" target="_blank"><img src="img/clients/separate page/manthan.jpg"/></a></li>
+          <li><a href="http://www.mavenir.com" target="_blank"><img src="img/clients/separate page/mave.jpg"/></a></li>
+          <li><a href="http://www.novonordisk.co.in" target="_blank"><img src="img/clients/separate page/novo.jpg"/></a></li>
+          <li><a href="http://www.poorvihousing.com" target="_blank"><img src="img/clients/separate page/poorvi.jpg"/></a></li>
+          <li><a href="http://www.pwc.in" target="_blank"><img src="img/clients/separate page/pwc.jpg"/></a></li>
+          <li><a href="http://www.segemai.com" target="_blank"><img src="img/clients/separate page/sege.jpg"/></a></li>
+          <li><a href="http://www.softtek.com" target="_blank"><img src="img/clients/separate page/soft.jpg"/></a></li>
+          <li><a href="http://www.sparcstudio.in/" target="_blank"><img src="img/clients/separate page/sparcStudio.jpg"/></a></li>
+          <li><a href="http://www.transwaters.com" target="_blank"><img src="img/clients/separate page/trans.jpg"/></a></li>
+          <li><a href="http://www.zaggle.in" target="_blank"><img src="img/clients/separate page/zaggle.jpg"/></a></li>
+            <li><a href="http://www.incaastudio.com" target="_blank"><img src="img/clients/separate page/icaa.jpg"/></a></li>
+
+    </ul>
+  <!--<div class="row-fluid" id="clients_strip">
   		<div class="span1 hidden-phone"></div>
         <div class="span10">
             <div id='carousel_container' class="carousel slide" data-ride="carousel"  data-pause="hover">
@@ -225,7 +276,7 @@ Trainers Testimonial</h5>
               </div>
               </div>
     </div>
-  	</div><!-- end of Clients Strip -->
+  </div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
     <div class="row-fluid bn" id="bottom_nav">
@@ -312,10 +363,28 @@ Trainers Testimonial</h5>
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/validations.js"></script>
-    <script type="text/javascript" src="js/actions.js"></script>
- <script type="text/javascript" src="js/nav.js"></script>
+    </div>
+    <!-- Container End -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+          $("#flexiselDemo3").flexisel({
+              visibleItems: 3,
+              itemsToScroll: 1,
+              animationSpeed: 400,
+              infinite: true,
+              autoPlay: {
+                  enable: true,
+                  interval: 2000,
+                  pauseOnHover: true
+              }
+          });
+
+      });
+      </script>
+      <script type="text/javascript" src="js/nav.js"></script>
+      <script type="text/javascript" src="js/validations.js"></script>
+      <script type="text/javascript" src="js/actions.js"></script>
+      <script type="text/javascript" src="js/jquery.flexisel.js"></script>
 </body>
 </html>

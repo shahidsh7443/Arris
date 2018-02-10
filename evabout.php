@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
   <link rel="stylesheet" type="text/css" href="css/clients.css" />
   <link rel="stylesheet" type="text/css" href="css/home.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+  <link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
   <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 
@@ -46,7 +46,7 @@
 
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:105.8%;"style="max-width:106%" class="js" />
 
         </div>
 

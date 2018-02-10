@@ -19,7 +19,7 @@ session_start(); ?>
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
 <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 
@@ -27,7 +27,7 @@ session_start(); ?>
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-itouch-icon" href="img/favicon.png">
 <style>
-textarea{resize:none; width:90%; height:200px;}
+textarea{resize:none; width:100%; height:200px;}
 input{width:70%; text-align:left;}
 /*.span4{border:1px solid #f00;}
 iframe{padding-right:2em; margin-right:1em;}*/
@@ -42,17 +42,33 @@ table tr td{padding:0.28em; padding-right:4.5em;}
 thead{font-weight:bold;}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<!--[if lt IE 9]>
-     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-     <script type="text/javascript">
-	 	$(function(){
-				$("#gmap").css({height:"350px", width:"100%"})
-		})
-	 </script>
-     <style>
-     	#menu{display:none;}
-     </style>
-<![endif]-->
+<script type="text/javascript">
+$( document ).ready(function() {
+$("#econt").submit(function(e){
+e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
+$.ajax({
+            url: 'http://projects.razorbee.com/arrisventures/econtact.php',
+            type: 'post',
+            dataType : 'json',
+                       contentType: false,
+                       cache: false,
+                       processData:false,
+            data: form_data,
+            success: function(  ){
+            alert("successful");
+           },
+            error: function( aa ){
+              $("#esend").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -65px;margin-left: -125px;'>Thank you for contacting us.</span>");
+              $('#econt')[0].reset();
+            }
+        });
+
+
+});
+});
+</script>
 </head>
 
 <body>
@@ -63,7 +79,7 @@ thead{font-weight:bold;}
 
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:105.8%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -123,33 +139,33 @@ thead{font-weight:bold;}
         <div class="span12">
           <!--First Image-->
           <h1 id="form_title">Contact Us</h1>
-               <div id='contact_form'>
-              <form action="econtact.php" method="post" target="_blank">
+               <div id='contact_form' class="vcon">
+              <form  method="post" id="econt">
               	<div id="success_msg">
               	<?php //echo $_SESSION['error_msg'];
 				//unset($_SESSION['error_msg']);?>
               		</div>
-                    <div class="row-fluid">
+                    <div class="row-fluid vrf">
                     	<div class="span2"><label> Name*</label></div>
-                        <div class="span4"><input type="text" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                        <div class="span4"><input type="text" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/></div>
                         <div class="span2"><label>Location* </label></div>
-                        <div class="span4"><input type="text" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                        <div class="span4"><input type="text" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/></div>
                     </div>
                     <div class="row-fluid">
                     	<div class="span2"><label>Mobile*</label></div>
-                        <div class="span4"><input type="text" name="mobile" pattern="^[789]\d{9}$" id="mobile" maxlength="10" required/></div>
+                        <div class="span4"><input type="text" name="mobile" pattern="^[789]\d{9}$" id="mobile" maxlength="10" onkeyup="send_mail1_contact(this.id)" required/></div>
                         <div class="span2"><label>Email Id*</label></div>
-                        <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/></div>
+                        <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" onkeyup="send_mail1_contact(this.id)" required/></div>
                     </div>
                     <div class="row-fluid"><br />
-                    	<div class="span2 offset5" style="text-align:left; margin-bottom:0.5em; "><label>Message*</label></div>
+                    	<div class="span2 offset5 ctm"  style="text-align:left;margin-bottom:0.5em;"><label>Message*</label></div>
                     </div>
                     <div class="row-fluid">
-                    	<div class="span12"><textarea id="msg" name="msg" required></textarea></div>
+                    	<div class="span12"><textarea id="msg" name="msg" onkeyup="send_mail1_contact(this.id)" onkeyup="send_mail1_contact(this.id)" required></textarea></div>
                     </div>
                     <div class="row-fluid">
                     	<div class="span2 offset5">
- <button name="submit" align="center" class="btn btn-lg btn-warning btn-block" type="submit" onclick="send_mail1_contact()" width="50px"  style="margin-top:25px;height:40px;font-size:20px;width: 50%;">Send</button></div>
+ <button name="submit" align="center" id="esend" class="btn btn-lg btn-warning btn-block" type="submit" onclick="send_mail1_contact()" width="50px"  style="margin-top:25px;height:40px;font-size:20px;width: 50%;">Send</button></div>
                     </div>
 
 

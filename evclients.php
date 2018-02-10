@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
   <link rel="stylesheet" type="text/css" href="css/clients.css" />
   <link rel="stylesheet" type="text/css" href="css/home.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+  <link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
   <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 
@@ -39,25 +39,32 @@
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
     <script type="text/javascript">
-		$(document).ready(function(){
-			$('.slider8').bxSlider({
-  				slideWidth: 800,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10,
-				pause:5000
- 			});
+$( document ).ready(function() {
+$("#form").submit(function(e){
+e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
+$.ajax({
+                url: 'http://projects.razorbee.com/arrisventures/evtraining.php',
+                type: 'post',
+                dataType : 'json',
+                           contentType: false,
+                           cache: false,
+                           processData:false,
+                data: form_data,
+                success: function(  ){
+                alert("successful");
+               },
+                error: function( aa ){
+                  $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -60px;margin-left: -180px;'>Thankyou for Contacting us</span>");
+                  $('#form')[0].reset();
+                }
+            });
 
-			$('.venture_slider').bxSlider({
-  				slideWidth: 500,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10
- 			});
-		});
-	</script>
+
+});
+});
+</script>
 </head>
 
 <body>
@@ -67,7 +74,7 @@
 	<!-- Header Row -->
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:105.8%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -105,44 +112,44 @@
 <p class="sep"></p>
 <h4  id="frmm">If you are looking for any Technical Evaluation for your organisation, please write us your requirement </h4>
 <div class="row-fluid tcc" >
-  <form id="form"  name="form" method="POST" class="tcform" action="http://projects.razorbee.com/arrisventures/evtraining.php" target="_blank" enctype="multipart/form-data">
+  <form id="form"  name="form" method="POST" class="tcform"  enctype="multipart/form-data">
   <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">LOOKING FOR CORPORATE TRAINING?</h2>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="50" id="name" name="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$" placeholder="*Enter Name"  required/>
+  			<input type="text" class="form-control" maxlength="50" id="name" name="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$" placeholder="*Enter Name" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="text" class="form-control" maxlength="50" id="desig" name="desig" pattern="^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Enter Designation"  required/>
+  			<input type="text" class="form-control" maxlength="50" id="desig" name="desig" pattern="^[a-zA-Z][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Enter Designation" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="20" id="mobile" name="mobile" pattern="^[789]\d{9}$" placeholder="*Enter Mobile Number"  required/>
+  			<input type="text" class="form-control" maxlength="20" id="mobile" name="mobile" pattern="^[789]\d{9}$" placeholder="*Enter Mobile Number" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="text" class="form-control" id="email" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="*Enter Email Id"  required/>
+  			<input type="text" class="form-control" id="email" name="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="*Enter Email Id" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="50" id="compname" name="compname" pattern="^[a-zA-Z0-9][-./&+\w\s]*$" placeholder="*Enter Company Name"  required/>
+  			<input type="text" class="form-control" maxlength="50" id="compname" name="compname" pattern="^[a-zA-Z0-9][-./&+\w\s]*$" placeholder="*Enter Company Name" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input style="" type="text" class="form-control" maxlength="50" id="compurl" name="compurl" pattern="^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$" placeholder="*Enter Company URL"  required/>
+  			<input style="" type="text" class="form-control" maxlength="50" id="compurl" name="compurl" pattern="^(https\:\/\/|http\:\/\/|www\.|)[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU|co.in|uk)*$" placeholder="*Enter Company URL" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   	</div>
   	<div class="form-group">
   		<div class="col-sm-6">
-  			<input type="text" class="form-control" maxlength="20" id="cloc" name="cloc" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" placeholder="*Enter Company Location"  required/>
+  			<input type="text" class="form-control" maxlength="20" id="cloc" name="cloc" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" placeholder="*Enter Company Location" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   		<div class="col-sm-6 get_hire">
-  			<input type="text" class="form-control" maxlength="50" id="hire" name="hire" pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Industry Serviced"  required/>
+  			<input type="text" class="form-control" maxlength="50" id="hire" name="hire" pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]+[a-zA-Z0-9\.]*$" placeholder="*Industry Serviced" onkeyup="send_mail3_contact(this.id)"  required/>
   		</div>
   	</div>
 
-  	<div class="form-group">
+  	<div class="form-group evf">
   		<div class="col-sm-12">
-  			<textarea style="width:100%;" rows="6" cols="44" id="com" name="com"  placeholder="*Enter Comment..."  required></textarea>
+  			<textarea style="width:100%;" rows="6" cols="44" id="com" name="com"  placeholder="*Enter Comment..." onkeyup="send_mail3_contact(this.id)"  required></textarea>
   		</div>
   	</div>
 
@@ -160,45 +167,7 @@
         </div>
     </div>
     <!-- Mail -->
-    <?php
-    if(isset($_POST['submit'])) {
 
-    $namef = $_POST['name'];
-    $location= $_POST['cloc'];
-    $mobile= $_POST['mobile'];
-    $email= $_POST['email'];
-    $compname= $_POST['compname'];
-    $compurl = $_POST['compurl'];
-    $designation= $_POST['desig'];
-    $hire= $_POST['hire'];
-    $msg= $_POST['com'];
-    $subject = "Your request acknowledgement";
-    $body = "Dear " .$namef. "," ."<br><br>". "Thanks for business enquiry. One of our sales managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>Sales Team<br>Mobile : 7353775774 <br>www.arristeck.com";
-    // Always set content-type when sending HTML email
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From:rekha@arristeck.com". "\r\n" .
-    "CC: anil@arristeck.com,arvind@arristeck.com";
-    $success=mail($email,$subject,$body,$headers);
-    if( $success== true ) {
-    echo "<script type='text/javascript'>alert('Resume submitted successfully');</script>";
-    }else {
-    echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
-    }
-    $subject = "Business Enquiry";
-    $body = "Dear Sales Team,<br><br>You have received an online business enquiry with the following details.<br/><br/>Fisrt Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$namef. "<br/><br/>Mobile No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$mobile. "<br/><br/>Email Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$email. "<br/><br/>Company Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compname."<br/><br/>Company URL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$compurl. "<br/><br/>Company Loc. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br/><br/>Designation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$designation."<br/><br/>Industry Serviced &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " .$hire. "<br><br>Comments :<br><br>" .$msg. "<br><br>With Regards,<br>www.arrisventures.in";
-    // Always set content-type when sending HTML email
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From:".$email. "\r\n";
-    $success1=mail("rekha@arristeck.com",$subject,$body,$headers);
-    /*if( $success1== true ) {
-    echo "<script type='text/javascript'>alert('Mailqq Sent successfully');</script>";
-    }else {
-    echo "<script type='text/javascript'>alert('Unableqq to send mail');</script>";
-    }*/
-    }
-    ?>
     <!--End-->
 
     <p class="sep2" style="border:3px solid #00b8bb;"></p>

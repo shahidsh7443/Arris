@@ -9,20 +9,26 @@ session_start(); ?>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- My Styles -->
-<link rel="stylesheet" type="text/css" href="css/clients.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-responsive.css">
+
+  <!-- My Styles -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+  <link rel="stylesheet" type="text/css" href="css/clients.css" />
+  <link rel="stylesheet" type="text/css" href="css/home.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
+  <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-itouch-icon" href="img/favicon.png">
 <style>
-textarea{resize:none; width:90%; height:200px;}
+textarea{resize:none; width:100%; height:200px;}
 input{width:70%; text-align:left;}
 /*.span4{border:1px solid #f00;}
 iframe{padding-right:2em; margin-right:1em;}*/
@@ -37,17 +43,33 @@ table tr td{padding:0.28em; padding-right:4.5em;}
 thead{font-weight:bold;}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<!--[if lt IE 9]>
-     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-     <script type="text/javascript">
-	 	$(function(){
-				$("#gmap").css({height:"350px", width:"100%"})
-		})
-	 </script>
-     <style>
-     	#menu{display:none;}
-     </style>
-<![endif]-->
+<  <script type="text/javascript">
+$( document ).ready(function() {
+$("#trctf").submit(function(e){
+e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
+$.ajax({
+              url: 'http://projects.razorbee.com/arrisventures/tekthankyou.php',
+              type: 'post',
+              dataType : 'json',
+                         contentType: false,
+                         cache: false,
+                         processData:false,
+              data: form_data,
+              success: function(  ){
+              alert("successful");
+             },
+              error: function( aa ){
+                $("#ctbt").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -65px;margin-left: -125px;'>Thank you for contacting us.</span>");
+                $('#trctf')[0].reset();
+              }
+          });
+
+
+});
+});
+</script>
 </head>
 
 <body>
@@ -122,33 +144,33 @@ thead{font-weight:bold;}
         <div class="span12">
           <!--First Image-->
           <h1 id="form_title">Contact Us</h1>
-               <div id='contact_form'>
-              <form action="tekthankyou.php" method="post" target="_blank">
+               <div id='contact_form' class="vcon">
+              <form  method="post" id="trctf">
               	<div id="success_msg">
               	<?php //echo $_SESSION['error_msg'];
 				//unset($_SESSION['error_msg']);?>
               		</div>
-                    <div class="row-fluid">
+                    <div class="row-fluid vrf">
                     	<div class="span2"><label> Name*</label></div>
-                        <div class="span4"><input type="text" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                        <div class="span4"><input type="text" name="name" id="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/></div>
                         <div class="span2"><label>Location* </label></div>
-                        <div class="span4"><input type="text" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/></div>
+                        <div class="span4"><input type="text" name="location" id="location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/></div>
                     </div>
-                    <div class="row-fluid">
+                    <div class="row-fluid vrf">
                     	<div class="span2"><label>Mobile*</label></div>
-                        <div class="span4"><input type="text" name="mobile" id="mobile" maxlength="10" pattern="^[789]\d{9}$" required/></div>
+                        <div class="span4"><input type="text" name="mobile" id="mobile" maxlength="10" pattern="^[789]\d{9}$" onkeyup="send_mail1_contact(this.id)" required/></div>
                         <div class="span2"><label>Email Id*</label></div>
-                        <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/></div>
+                        <div class="span4"><input type="text" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" onkeyup="send_mail1_contact(this.id)" required/></div>
                     </div>
                     <div class="row-fluid"><br />
-                    	<div class="span2 offset5" style="text-align:left; margin-bottom:0.5em; "><label>Message*</label></div>
+                    	<div class="span2 offset5 ctm"  style="text-align:left;margin-bottom:0.5em;"><label>Message*</label></div>
                     </div>
                     <div class="row-fluid">
-                    	<div class="span12"><textarea id="msg" name="msg" required></textarea></div>
+                    	<div class="span12"><textarea id="msg" name="msg" onkeyup="send_mail1_contact(this.id)" required></textarea></div>
                     </div>
                     <div class="row-fluid">
-                    	<div class="span2 offset5">
- <button name="submit" align="center" class="btn btn-lg btn-warning btn-block" onclick="send_mail1_contact()" type="submit" width="50px" style="margin-top:25px;height:50px;font-size:25px;">Send</button></div>
+                    	<div class="span2 offset5 spoff">
+ <button name="submit" align="center" id="ctbt" class="btn btn-lg btn-warning btn-block" onclick="send_mail1_contact()" type="submit" width="50px" style="margin-top:25px;height:40px;font-size:25px;width:50%;">Send</button></div>
                     </div>
 
 
@@ -219,7 +241,48 @@ thead{font-weight:bold;}
 
 
   <!-- Clients -->
-  <div class="row-fluid" id="clients_strip">
+	<p class="sep2" style="border:3px solid #00b8bb;"></p>
+  <ul id="flexiselDemo3">
+        <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>
+        <li><a href="http://www.accionlabs.com" target="_blank"><img src="img/clients/separate page/accion.jpg"/></a></li>
+          <li><a href="http://www.arisglobal.com" target="_blank"><img src="img/clients/separate page/AG.jpg" /></a></li>
+        <li><a href="http://www.adp.in" target="_blank"><img src="img/clients/separate page/adp.png" /></a></li>
+          <li><a href="http://www.artechinfo.in" target="_blank"><img src="img/clients/separate page/artech.jpg"/></a></li>
+          <li><a href="http://www.bensoncompany.com" target="_blank"><img src="img/clients/separate page/benson.jpg"/></a></li>
+          <li><a href="http://www.boschindia.com" target="_blank"><img src="img/clients/separate page/bosch.jpg" /></a></li>
+          <li><a href="http://www.uberdiagnostics.com" target="_blank"><img src="img/clients/separate page/cardio.jpg" /></a></li>
+          <li><a href="http://www.cheersin.com" target="_blank"><img src="img/clients/separate page/cheers.jpg" /></a></li>
+          <li><a href="http://www.eclinicalsol.com" target="_blank"><img src="img/clients/separate page/clinic.jpg"/></a></li>
+          <li><a href="http://www.depusa.com" target="_blank"><img src="img/clients/separate page/dep.jpg" /></a></li>
+          <li><a href="http://www.etherglobal.com" target="_blank"><img src="img/clients/separate page/ether.jpg" /></a></li>
+          <li><a href="http://www.gmrgroup.in" target="_blank"><img src="img/clients/separate page/GMR.jpg" /></a></li>
+          <li><a href="http://www.greytip.com" target="_blank"><img src="img/clients/separate page/greytip.jpg"/></a></li>
+          <li><a href="http://www.bizprout.com" target="_blank"><img src="img/clients/separate page/Bizsprout.jpg" /></a></li>
+          <li><a href="http://www.hombalegroup.com" target="_blank"><img src="img/clients/separate page/hombale.jpg"/></a></li>
+          <li><a href="http://www.campussutra.com" target="_blank"><img src="img/clients/separate page/CampusSutra.jpg"/></a></li>
+          <li><a href="http://www.ibm.com" target="_blank"><img src="img/clients/separate page/ibm.jpg"/></a></li>
+          <li><a href="http://www.infogain.com" target="_blank"><img src="img/clients/separate page/infogain.jpg"/></a></li>
+          <li><a href="http://www.itcinfotech.com" target="_blank"><img src="img/clients/separate page/itc.jpg"/></a></li>
+          <li><a href="http://www.ivanti.com" target="_blank"><img src="img/clients/separate page/ivanti.jpg"/></a></li>
+          <li><a href="http://www.jupitergroup.co.in" target="_blank"><img src="img/clients/separate page/jupiter.jpg"/></a></li>
+          <li><a href="http://www.Keyfalcon" target="_blank"><img src="img/clients/separate page/keyfalcon.jpg"/></a></li>
+          <li><a href="http://www.lumenatix.com" target="_blank"><img src="img/clients/separate page/lumenatrix.jpg"/></a></li>                    <li><a href="http://www.targetgroup.com" target="_blank"><img src="img/clients/separate page/targetgroup.jpg"/></a></li>
+          <li><a href="http://www.mahindrafinance.com" target="_blank"><img src="img/clients/separate page/mahindra.jpg"/></a></li>
+          <li><a href="http://www.maintec.com" target="_blank"><img src="img/clients/separate page/maintec.jpg"/></a></li>
+          <li><a href="http://www.manthan.com" target="_blank"><img src="img/clients/separate page/manthan.jpg"/></a></li>
+          <li><a href="http://www.mavenir.com" target="_blank"><img src="img/clients/separate page/mave.jpg"/></a></li>
+          <li><a href="http://www.novonordisk.co.in" target="_blank"><img src="img/clients/separate page/novo.jpg"/></a></li>
+          <li><a href="http://www.poorvihousing.com" target="_blank"><img src="img/clients/separate page/poorvi.jpg"/></a></li>
+          <li><a href="http://www.pwc.in" target="_blank"><img src="img/clients/separate page/pwc.jpg"/></a></li>
+          <li><a href="http://www.segemai.com" target="_blank"><img src="img/clients/separate page/sege.jpg"/></a></li>
+          <li><a href="http://www.softtek.com" target="_blank"><img src="img/clients/separate page/soft.jpg"/></a></li>
+          <li><a href="http://www.sparcstudio.in/" target="_blank"><img src="img/clients/separate page/sparcStudio.jpg"/></a></li>
+          <li><a href="http://www.transwaters.com" target="_blank"><img src="img/clients/separate page/trans.jpg"/></a></li>
+          <li><a href="http://www.zaggle.in" target="_blank"><img src="img/clients/separate page/zaggle.jpg"/></a></li>
+            <li><a href="http://www.incaastudio.com" target="_blank"><img src="img/clients/separate page/icaa.jpg"/></a></li>
+
+    </ul>
+  <!--<div class="row-fluid" id="clients_strip">
   		<div class="span1 hidden-phone"></div>
         <div class="span10">
             <div id='carousel_container'>
@@ -267,7 +330,7 @@ thead{font-weight:bold;}
               </div>
               </div>
     </div>
-  	</div><!-- end of Clients Strip -->
+	</div>--><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
     <div class="row-fluid bn" id="bottom_nav">
@@ -355,9 +418,26 @@ thead{font-weight:bold;}
     </div><!-- End of Footer -->
 
     </div><!-- Container End -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/nav.js"></script>
-    <script type="text/javascript" src="js/validations.js"></script>
-    <script type="text/javascript" src="js/actions.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+					$("#flexiselDemo3").flexisel({
+							visibleItems: 3,
+							itemsToScroll: 1,
+							animationSpeed: 400,
+							infinite: true,
+							autoPlay: {
+									enable: true,
+									interval: 2000,
+									pauseOnHover: true
+							}
+					});
+
+			});
+			</script>
+			<script type="text/javascript" src="js/nav.js"></script>
+			<script type="text/javascript" src="js/validations.js"></script>
+			<script type="text/javascript" src="js/actions.js"></script>
+			<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 </body>
 </html>

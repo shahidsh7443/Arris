@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
 <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->

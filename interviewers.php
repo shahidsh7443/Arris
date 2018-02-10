@@ -18,54 +18,43 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
   <link rel="stylesheet" type="text/css" href="css/clients.css" />
   <link rel="stylesheet" type="text/css" href="css/home.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+  <link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
   <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-itouch-icon" href="img/favicon.png">
-<!--[if lt IE 9]>
-     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-     <style>
-     	#menu{display:none;}
-     </style>
-<![endif]-->
-<!--[if lt IE 8]>
-     <script type="text/javascript">
-     	alert("This website is best viewed in browsers Internet Explorer 8 and above. Kindly update your browser or view the website on Mozilla Firefox or Google Chrome");
-     </script>
-<![endif]-->
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
     <script type="text/javascript">
-		$(document).ready(function(){
-			$('.slider8').bxSlider({
-  				slideWidth: 800,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10,
-				pause:5000
- 			});
+$( document ).ready(function() {
+$("#evin").submit(function(e){
+e.preventDefault();
+var form_data = new FormData(this);
+//$(this).serialize(),
+$.ajax({
+                url: 'http://projects.razorbee.com/arrisventures/evthankyou.php',
+                type: 'post',
+                dataType : 'json',
+                           contentType: false,
+                           cache: false,
+                           processData:false,
+                data: form_data,
+                success: function(  ){
+                alert("successful");
+               },
+                error: function( aa ){
+                  $("#evsb").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -120px;margin-left: 330px;'>Your Resume has been submitted successfully.</span>");
+                  $('#evin')[0].reset();
+                }
+            });
 
-			$('.venture_slider').bxSlider({
-  				slideWidth: 500,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10
- 			});
-      /*$('.name').keyup(function() {
-    $('span.error-keyup-1').hide();
-    var inputVal = $(this).val();
-    var numericReg = /^[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$/;
-    if(!numericReg.test(inputVal)) {
-      $(this).before('<span class="error error-keyup-1" style="background:red;color:white;font-size:20px;">Wrong Format of Name.</span>');
-    }
-});*/
-		});
-	</script>
+
+});
+});
+</script>
+
 </head>
 
 <body>
@@ -75,7 +64,7 @@
 	<!-- Header Row -->
   <div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:106%;"style="max-width:106%" class="js" />
+          <img id="logo" src="img/evr.png" alt="ArrisTechnologies Logo" style="max-width:105.8%;"style="max-width:106%" class="js" />
 
         </div>
 
@@ -117,8 +106,8 @@
 <div class="span12 str">
 <!--First Image-->
 <h2 id="form_title" style="color:white;">WOULD YOU LIKE TO EXPLORE INTERVIEWING OPPORTUNITIES?</h2>
-     <div id="contact_form" style="background-color:#2c93b3;" class="ctr1">
-    <form action="evthankyou.php" method="post" target="_blank" name="trform" enctype='multipart/form-data'>
+     <div id="contact_form" style="background-color:#2c93b3;" class="ctr1 intv">
+    <form  method="post" target="_blank" name="trform" enctype='multipart/form-data' id="evin">
       <div id="success_msg">
       <?php //echo $_SESSION['error_msg'];
 //unset($_SESSION['error_msg']);?>
@@ -138,7 +127,7 @@
               <div class="span4"><input type="text" name="email" id="email"/ required></div>
           </div>
           <div class="row-fluid"><br />
-            <div class="span2 offset5" style="text-align:left; margin-bottom:0.5em; "><label>Message*</label></div>
+            <div class="span2 offset5 ctm"  style="text-align:left;margin-bottom:0.5em;"><label>Message*</label></div>
           </div>
           <div class="row-fluid">
             <div class="span12"><textarea id="msg" name="msg" required></textarea></div>
@@ -146,21 +135,21 @@
           <div class="row-fluid">
             <div class="col-sm-8 nocolleftpad">
   	<div class="form-group col-sm-6">
-  		 <input  class="form-control name" maxlength="50" id="name" name="name" placeholder="*Name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/>
+  		 <input  class="form-control name" maxlength="50" id="name" name="name" placeholder="*Name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  class="form-control" maxlength="50" id="location" name="location" placeholder="*Location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/>
+  		 <input  class="form-control" maxlength="50" id="location" name="location" placeholder="*Location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  style="margin-top: 0px;"  class="form-control" maxlength="20" id="mobile" name="mobile" placeholder="*Mobile Number" pattern="^[789]\d{9}$"  required/>
+  		 <input  style="margin-top: 0px;"  class="form-control" maxlength="20" id="mobile" name="mobile" placeholder="*Mobile Number" pattern="^[789]\d{9}$" onkeyup="send_mail1_contact(this.id)"  required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  style="margin-top: 0px;" type="email" class="form-control" id="email" name="email" placeholder="*Email Id"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/>
+  		 <input  style="margin-top: 0px;" type="email" class="form-control" id="email" name="email" placeholder="*Email Id"  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	</div>
   	<div class="col-sm-4 nocolrightpad">
   	<div class="col-sm-12">
-  		 <textarea  rows="5" class="form-control" id="msg" name="msg" placeholder="*Message" required></textarea>
+  		 <textarea  rows="5" class="form-control" id="msg" name="msg" placeholder="*Message" onkeyup="send_mail1_contact(this.id)" required></textarea>
    <input type="hidden" name="action" value="sendusmeg">
 
 
@@ -179,10 +168,10 @@
     		</div>
       </div>
     </div>-->
-    <div class="row-fluid rff">
+    <div class="row-fluid rff ivr">
 	<label class="col-sm-4 " for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
 		<div class="col-sm-8 form-group">
-			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px;"></textarea>
+			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px; onkeyup="send_mail1_contact(this.id)"></textarea>
 		</div>
     <div class="col-lg-2 or"><p><b>OR</b></p></div>
       <div class="col-lg-12">
@@ -199,7 +188,7 @@
 </div>-->
 <div style="text-align:center;">
         		<div class="col-sm-offset-0 col-sm-12">
-        			<button type="submit" name="submit" class="btn btn-default submit_button" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
+        			<button type="submit" id="evsb" name="submit" class="btn btn-default submit_button" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
         			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Reset</button>
         		</div>
         	</div>
@@ -355,7 +344,7 @@ catch (phpmailerException $e) {
               </div>
               </div>
     </div>
-  </div>--><!-- end of Clients Strip -->
+  </div><!-- end of Clients Strip -->
 
 	<!-- Bottom Navigation -->
     <div class="row-fluid" id="bottom_nav">
@@ -442,7 +431,8 @@ catch (phpmailerException $e) {
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End --><script type="text/javascript">
+    </div><!-- Container End -->
+    <script type="text/javascript">
       $(document).ready(function(){
 
           $("#flexiselDemo3").flexisel({

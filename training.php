@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <link rel="stylesheet" type="text/css" href="css/clients.css" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css"/?ver=1.0>
+<link rel="stylesheet" type="text/css" href="css/style.css"?ver=1.0/>
 <link rel="stylesheet" type="text/css" href="css/style1.css"/>
 
 <!-- Favicon -->
@@ -38,26 +38,33 @@
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/jquery.bxslider.js"></script>
-    <!--<script type="text/javascript">
-		$(document).ready(function(){
-			$('.slider8').bxSlider({
-  				slideWidth: 800,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10,
-				pause:5000
- 			});
+    <script type="text/javascript">
+  $( document ).ready(function() {
+  $("#trf").submit(function(e){
+  e.preventDefault();
+  var form_data = new FormData(this);
+  //$(this).serialize(),
+  $.ajax({
+                url: 'http://projects.razorbee.com/arrisventures/thankyou2.php',
+                type: 'post',
+                dataType : 'json',
+                           contentType: false,
+                           cache: false,
+                           processData:false,
+                data: form_data,
+                success: function(  ){
+                alert("successful");
+               },
+                error: function( aa ){
+                  $("#trbt").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -120px;margin-left: 330px;'>Your Resume has been submitted successfully.</span>");
+                  $('#trf')[0].reset();
+                }
+            });
 
-			$('.venture_slider').bxSlider({
-  				slideWidth: 500,
-   				minSlides: 1,
-				maxSlides: 1,
-				moveSlides: 1,
-  				slideMargin: 10
- 			});
-		});
-	</script>-->
+
+  });
+  });
+  </script>
 </head>
 
 <body>
@@ -101,7 +108,7 @@
 <!--First Image-->
 <h2 id="form_title" style="color:white;">WOULD YOU LIKE TO EXPLORE FREELANCE TRAINING OPPORTUNITIES?</h2>
      <div id="contact_form" class="ctr1" style="background-color:#2c93b3;">
-    <form action="thankyou2.php" method="post" target="_blank" name="trform" enctype='multipart/form-data'>
+    <form  method="post"  name="trform" id="trf" enctype='multipart/form-data'>
       <div id="success_msg">
       <?php //echo $_SESSION['error_msg'];
 //unset($_SESSION['error_msg']);?>
@@ -120,7 +127,7 @@
               <div class="span4"><input type="text" name="email" id="email"/ required></div>
           </div>
           <div class="row-fluid"><br />
-            <div class="span2 offset5" style="text-align:left; margin-bottom:0.5em; "><label>Message*</label></div>
+            <div class="span2 offset5 ctm"  style="text-align:left;margin-bottom:0.5em;"><label>Message*</label></div>
           </div>
           <div class="row-fluid">
             <div class="span12"><textarea id="msg" name="msg" required></textarea></div>
@@ -128,28 +135,25 @@
           <div class="row-fluid">
             <div class="col-sm-8 nocolleftpad">
   	<div class="form-group col-sm-6">
-  		 <input  class="form-control name" maxlength="50" id="name" name="name" placeholder="*Name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/>
+  		 <input  class="form-control name" maxlength="50" id="name" name="name" placeholder="*Name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  class="form-control" maxlength="20" id="location" name="location" placeholder="*Location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" required/>
+  		 <input  class="form-control" maxlength="20" id="location" name="location" placeholder="*Location" pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  style="margin-top: 0px;"  class="form-control" maxlength="20" id="mobile" name="mobile" placeholder="*Mobile Number" pattern="^[789]\d{9}$" required/>
+  		 <input  style="margin-top: 0px;"  class="form-control" maxlength="20" id="mobile" name="mobile" placeholder="*Mobile Number" pattern="^[789]\d{9}$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	<div class="form-group  col-sm-6">
-  		 <input  style="margin-top: 0px;" maxlength="50" type="email" class="form-control" id="email" name="email" placeholder="*Email Id" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required/>
+  		 <input  style="margin-top: 0px;margin-bottom:0px;" maxlength="50" type="email" class="form-control" id="email" name="email" placeholder="*Email Id" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" onkeyup="send_mail1_contact(this.id)" required/>
   	</div>
   	</div>
   	<div class="col-sm-4 nocolrightpad">
   	<div class="col-sm-12">
-  		 <textarea  rows="5" maxlength="500" class="form-control" id="msg" name="msg" placeholder="*Message" required></textarea>
-   <input type="hidden" name="action" value="sendusmeg">
-
-
+  		 <textarea  rows="5" maxlength="500" class="form-control" id="msg" name="msg" placeholder="*Message" onkeyup="send_mail1_contact(this.id)" required></textarea>
   	</div>
   	</div>
   </div>
-    <div class="row-fluid rff">
+    <div class="row-fluid rff rsp">
 	<label class="col-sm-4 pp" for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
 		<div class="col-sm-8 form-group">
 			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px;"></textarea>
@@ -169,8 +173,8 @@
 </div>-->
           <div style="text-align:center;">
         		<div class="col-sm-offset-0 col-sm-12">
-        			<button type="submit" name="submit"  class="btn btn-default submit_button" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
-        			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Reset</button>
+        			<button type="submit" name="submit"  class="btn btn-default submit_button ctc" onclick="send_mail1_contact()" style="margin-top:25px;height:40px;font-size:18px;width:125px;margin-right:25px;">Contact Us</button>
+        			<button type="reset" value="Reset" id="trbt" onclick="$('#changeclas').hide();" class="btn btn-warning rst" style="margin-top:25px;height:40px;font-size:18px;width:125px;">Reset</button>
         		</div>
         	</div>
     </form>
@@ -179,62 +183,6 @@
 </div>      </div>
 </div>
 <!--  Mail --->
-<?php
-if(isset($_POST['submit'])) {
-require 'PHPMailer/PHPMailerAutoload.php';
-$name = $_POST['name'];
-$location= $_POST['location'];
-$mobile= $_POST['mobile'];
-$email= $_POST['email'];
-$msg= $_POST['msg'];
-$email1="anil@arristeck.com";
-$email2="arvind@arristeck.com";
-$pp=$_POST['pasteprofile'];
-$subject = "Your profile submission acknowledgement";
-$body = "Dear " .$name.","."<br><br>"."Thanks for sharing your profile. One of our managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>ArrisVentures Team<br>www.arrisventures.in";
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
-$success=mail($email,$subject,$body,$headers);
-if( $success== true ) {
-echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
-}else {
-echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
-}
-if($pp!="")
-{
-  $res="Please find the resume pasted for your kind perusal and further processing.";
-}
-else {
-  $res="Please find the resume attached for your kind perusal and further processing.";
-}
-$mailfrom = $_POST['email'];
-try {
-    $mail = new PHPMailer;
-    $mail->FromName  = $_POST['name'];
-    $to_email ="rekha@arristeck.com";
-    $mail->AddAddress($to_email);
-    $mail->From     = $mailfrom;
-    $mail->Subject  = "Trainer Profile ";
-  $body ="Dear Rekha,<br><br>You have received an online Trainer Profile from ".$name. " with the following details.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$msg."<br><br>Resume:<br><br>".$res. "<br><br>" .$pp. "<br><br>With Regards,<br>www.arrisventures.in";
-    $mail->MsgHTML($body);
-    $mail->AddCC($email1);
-    $mail->AddCC($email2);
-    $mail->IsSendmail();
-    $mail->AddReplyTo($mailfrom);
-    $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-    $mail->WordWrap   = 80;
-    $mail->AddAttachment($_FILES['profile']['tmp_name'], $_FILES['profile']['name']);
-    $mail->IsHTML(true);
-    $mail->Send();
-      }
-catch (phpmailerException $e) {
-  echo $e->errorMessage();
-}
-}
-?>
-
 <!-- End Mail -->
 <p class="sep2" style="border:3px solid #00b8bb;"></p>
 <ul id="flexiselDemo3">
