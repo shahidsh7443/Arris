@@ -162,6 +162,7 @@
   </tbody>
     </table>
 </div>
+</div> 
         </div>
     </div>
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -341,7 +342,7 @@
 
     </div><!-- End of Footer -->
 
-    </div>  <script type="text/javascript">
+     <script type="text/javascript">
 
       $(document).ready(function(){
 

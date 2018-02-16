@@ -45,7 +45,7 @@
   var form_data = new FormData(this);
   //$(this).serialize(),
   $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/thankyou2.php',
+                url: 'thankyou2.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -156,14 +156,14 @@
     <div class="row-fluid rff rsp">
 	<label class="col-sm-4 pp" for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
 		<div class="col-sm-8 form-group">
-			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px;"></textarea>
+			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -100px;"></textarea>
 		</div>
       <div class="col-lg-2 or"><p><b>OR</b></p></div>
       <div class="col-lg-12">
         <div class="form-group">
           <label class="col-sm-8 atc" for="inputfile" style="width:178px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
           <div class="col-sm-8 form-group">
-    		<input  type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-17px;"/></div>
+    		<input  type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-35px;"/></div>
     		</div>
       </div>
       </div>
@@ -182,6 +182,7 @@
 </div>
 </div>      </div>
 </div>
+</div> 
 <!--  Mail --->
 <!-- End Mail -->
 <p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -360,8 +361,6 @@
         </div>
 
     </div><!-- End of Footer -->
-
-    </div>
     <script type="text/javascript">
 
       $(document).ready(function(){

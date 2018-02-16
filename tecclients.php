@@ -45,7 +45,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/ctraining.php',
+                url: 'ctraining.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -53,7 +53,8 @@ $.ajax({
                            processData:false,
                 data: form_data,
                 success: function(  ){
-                alert("successful");
+               $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:17px;position:  absolute;margin-top: -60px;margin-left: -190px;'>Thank you for contacting us.</span>");
+                  $('#form')[0].reset();
                },
                 error: function( aa ){
                   $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -60px;margin-left: -180px;'>Thank you for contacting us.</span>");
@@ -185,7 +186,7 @@ Trainers Testimonial</h5>
 </div>
         </div>
     </div>
-
+</div> 
   <!-- Clients -->
   <p class="sep2" style="border:3px solid #00b8bb;"></p>
   <ul id="flexiselDemo3">
@@ -363,8 +364,6 @@ Trainers Testimonial</h5>
 
     </div><!-- End of Footer -->
 
-    </div>
-    <!-- Container End -->
     <script type="text/javascript">
       $(document).ready(function(){
 

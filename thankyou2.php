@@ -25,7 +25,7 @@ $body = "Dear " .$name.","."<br><br>"."Thanks for sharing your profile. One of o
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
+$headers .= "From:rekha@arristeck.com". "\r\n";
 $success=mail($email,$subject,$body,$headers);
 if( $success== true ) {
 echo "111111111";
@@ -42,12 +42,11 @@ else {
 try {
     $mail = new PHPMailer;
     $mail->FromName   = $_POST['name'];
-    $to_email ="shahidrazorbee@gmail.com";
+    $to_email ="rekha@arristeck.com";
     $mail->AddAddress($to_email);
     $mail->From       = $_POST['email'];
-    $mail->AddCC("saleempasha928@gmail.com");
+    $mail->AddCC("anil@arristeck.com","arvind@arristeck.com");
     $mail->Subject  = $subject;
-  /*$body ="Dear Gaurav,<br><br>Please find the resume of " .$name. " with the following details. This resume has been submitted through Arris Website for your kind perusal and further processing.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Resume:<br><br>".$msg. "<br>";*/
     $body ="<html><body>";
     $body .= "<p>Dear Rekha,<br><br>You have received an online Trainer Profile from " . $_POST['name'] . " with the following details.</p><br>";
     $body .="<table>";
@@ -59,7 +58,7 @@ try {
     $body .="<tr><td>Resume</td><td>: &nbsp;</td></tr>";
     $body .="</table>";
     $body .="<p>" . $res . "</p>";
-    $body .="<p>" . $_POST['pasteprofile'] . "</p>";
+    $body .="<p>" . $_POST['pasteprofile'] . "</p>"; 
     $body .="<p><br>With Regards,<br>www.arrisventures.in</p>";
     $body .="</body></html>";
     $mail->MsgHTML($body);

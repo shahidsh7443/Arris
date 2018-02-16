@@ -45,7 +45,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-            url: 'http://projects.razorbee.com/arrisventures/wethank.php',
+            url: 'wethank.php',
             type: 'post',
             dataType : 'json',
                        contentType: false,
@@ -69,12 +69,12 @@ $.ajax({
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid we">
 
 	<!-- Header Row -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -5px;max-width:  103%;" class="js" /></a>
+                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -1.5px;max-width:  103%;" class="js" /></a>
 
         </div>
 
@@ -105,7 +105,6 @@ $.ajax({
 
                 <div>
                 <div class="span4">
-  <h3><u>Address</u></h3>
                   <p style="width:102%;border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><b>Corporate Office :</b> #25, Old 22/1, 9th Cross, 5th Main, N R Colony, Bangalore - 560 019<br/><span >Address URL:</span> <a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arris">https://maptags.in/Arris</a><br>
    +91 7353775774&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color:#0000ff;" target="_blank" class="withicons" href="https://maptags.in/Arris">View Location</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:info@arristeck.com" style="color:#0000ff;">info@arristeck.com</a></p>
   <hr style="border:1px dashed black;">
@@ -227,7 +226,8 @@ $.ajax({
             </table>
         </div>
   	</div>
-    </div><!-- end of content -->
+    </div>
+ </div><!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
 
 
@@ -367,7 +367,7 @@ $.ajax({
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+   <!-- Container End -->
 
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/validations.js"></script>

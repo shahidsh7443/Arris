@@ -56,6 +56,14 @@ h4{text-align:center; border-bottom:3px double #00b8bb; border-top:3px double #0
     <script type="text/javascript">
 
 		$( document ).ready(function() {
+  $(".submit").on('click',function()
+      {
+        var v1=$("#cat").val();
+        if(v1 != "")
+        {
+          $('#mailform')[0].reset();
+        }
+      });
 			$('a').on('click',function() {
 
 		    if(this.id=="arristech")
@@ -104,7 +112,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/sendmail.php',
+                url: 'sendmail.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -117,9 +125,9 @@ $.ajax({
                 error: function( aa ){
                   var pr=$("#msg").val();
                   if(pr=="")
-                  $("#upload").closest("div").append("<span class='error' style='color:white;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been Submitted</span>");
+                  $("#upload").closest("div").append("<span class='error' style='color:green;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been submitted</span>");
                    else {
-                     $("#send").closest("div").append("<span class='error' style='color:white;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been Submitted</span>");
+                     $("#send").closest("div").append("<span class='error' style='color:green;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -25px;margin-left: -145px;'>Your Resume has been submitted</span>");
                    }
                    $('#mailform')[0].reset();
                 }
@@ -267,7 +275,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
                 </div>
                 <div class="Arc">
                 <p>To view and apply with:</p>
-                <p><img src="img/Home/Arris Evaluation.jpg" class="float" />Help you with expert interviewers to assess your candidate’s competency & Experienced hands to evaluate projects before client submissions.<br /><a href="#"  class="submit" id="arrisev">- Submit your resume</a></p><br />
+                <p><img src="img/Home/Arris Evaluation.jpg" class="float" />Help you with expert interviewers to assess your candidate’s competency by virtually eliminating first level of technical interview and also experienced hands to evaluate projects before client submissions.<br /><a href="#"  class="submit" id="arrisev">- Submit your resume</a></p><br />
 
                 </div>
 								<div class="Arc">
@@ -393,7 +401,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
             </form>
             </div><!--END of Submit Resume Section-->
 
-
+</div>
         </div>
   	</div><!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
@@ -575,7 +583,7 @@ senior levels and executive positions for numerous sectors in IT / Non IT and IT
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+    <!-- Container End -->
 		<script type="text/javascript">
 
 $(document).ready(function(){

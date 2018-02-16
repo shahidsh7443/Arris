@@ -61,7 +61,7 @@
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
 	<div class="row-fluid">
@@ -119,6 +119,7 @@ Hiring processes are often rooted in speed — but rushed, uninformed hiring dec
 
 </p>        </div>
     </div>
+  </div>
 
   <!-- Clients -->
   <p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -296,8 +297,7 @@ Hiring processes are often rooted in speed — but rushed, uninformed hiring dec
         </div>
 
     </div><!-- End of Footer -->
-
-  </div><!-- Container End <script type="text/javascript">-->
+<!-- Container End <script type="text/javascript">-->
   <script type="text/javascript">
     $(document).ready(function(){
 

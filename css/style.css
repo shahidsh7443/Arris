@@ -147,7 +147,10 @@ ul#nav li.dropdown-submenu ul.dropdown-menu li a{ padding:0.25em 0.94em;}
   border-top-color: #ccc;
   bottom: -8px;
 }
-
+#bottom_nav .span1
+{
+padding-left:10px;
+}
 /*Toggling text for Phone Nav*/
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
@@ -240,6 +243,7 @@ ul#nav li.dropdown-submenu ul.dropdown-menu li a{ padding:0.25em 0.94em;}
 #bottom_nav{
 	background-color:#45dddf;
 	padding-top:1em;
+padding-right:5px;
   margin-top: 85px;
   border-top: 6px solid #00b8bb;
 
@@ -355,6 +359,8 @@ font-size: 25px;
 	margin-left:0.45em;
 	font-size:1em;
 	text-align:left;
+font-family: unset;
+    font-weight: 600;
 }
 
 .ctr1 label
@@ -486,11 +492,7 @@ border-bottom: 1px solid black;
 {
   width: 98%;
 padding-top: 50px;
-padding-left: 15px;
-}
-.skill1 h1
-{
-  padding-left: 0px;
+padding-left: 27px;
 }
 .skill1 .skillp
 {
@@ -595,6 +597,32 @@ padding-left: 15px;
 {
   padding-right: 50px;
   padding-left: 50px;
+}
+#footer .span1 {
+    padding-right: 0px;
+}
+
+#footer {
+    padding-left: 13px;
+}
+#footer .span1.offset1
+{
+  margin-right: -12px;
+}
+#bottom_nav .span1.offset1 {
+    padding-left: 12px;
+}
+
+#footer {
+    padding-left: 13px;
+}
+#footer .span1.offset1 {
+    margin-right: -12px;
+}
+
+style.css:605
+#footer .span1 {
+    padding-right: 0px;
 }
 @media only screen and (max-width:480px)
 {
@@ -702,7 +730,9 @@ padding-left: 15px;
 }
   .or
   {
-    margin-top: 0px !important;
+    margin-top: -50px !important;
+    margin-bottom: 30px !important;
+    margin-left: 0px !important;
   }
   .col-sm-8 textarea
   {
@@ -760,7 +790,7 @@ border-bottom: 1px solid black;
 #contact_form  .row-fluid input[type=file]
 {
   height: 20px;
-  width: 40%;
+  width: 45%;
 }
 #contact_form  .row-fluid input
 {
@@ -848,6 +878,8 @@ border-bottom: 1px solid black;
 .trl
 {
   width: 93%;
+margin-top: 6.4px !important;
+    margin-left: -1.5px;
 }
 /*.row-fluid .offset1:first-child {
     margin-left: 7.4%;
@@ -947,7 +979,7 @@ border-bottom: 1px solid black;
 }
 #address .span4
 {
-  margin-top: 45px;
+  margin-top: 70px;
 }
 .ctt .sep
 {
@@ -964,4 +996,5 @@ border-bottom: 1px solid black;
 .or
 {
   margin-top: -115px;
+  margin-left: -30px;
 }

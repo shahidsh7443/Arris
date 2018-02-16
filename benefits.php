@@ -60,7 +60,7 @@
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
   <div class="row-fluid">
@@ -117,7 +117,7 @@ Boost return on interview by submitting pre-qualified candidates to hiring manag
 
   Impress hiring managers and your colleagues by shortlisting the right professionals every time.
 
-
+  </div>
         </div>
     </div>
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -296,8 +296,7 @@ Boost return on interview by submitting pre-qualified candidates to hiring manag
         </div>
 
     </div><!-- End of Footer -->
-
-    </div><!-- Container End --><script type="text/javascript">
+<!-- Container End --><script type="text/javascript">
       $(document).ready(function(){
 
           $("#flexiselDemo3").flexisel({

@@ -40,7 +40,7 @@
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
 
@@ -122,7 +122,7 @@
   <p>To reach Us, <a href="contact.php">please click here.</a></p>
             </div>
 
-
+    </div>
 
         </div>
   	</div><!-- end of content -->
@@ -305,7 +305,7 @@
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End --><script type="text/javascript">
+<!-- Container End --><script type="text/javascript">
       $(document).ready(function(){
 
           $("#flexiselDemo3").flexisel({

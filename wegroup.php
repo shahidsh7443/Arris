@@ -34,11 +34,11 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid we">
 	<!-- Container for all the Content -->
 	<div class="row-fluid">
         <div class="span3 offset1"><!--Logo content-->
-                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -5px;max-width:  103%;" class="js" /></a>
+                  <a href="arriswellness.php"><img id="logo" src="img/arwel.png" alt="ArrisWellness Logo" style="margin-left:  -1.5px;max-width:  103%;" class="js" /></a>
 
         </div>
 
@@ -117,7 +117,8 @@
 
 
         </div>
-  	</div><!-- end of content -->
+  	</div>
+ </div><!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
 
 
@@ -257,7 +258,7 @@
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+<!-- Container End -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
 </body>

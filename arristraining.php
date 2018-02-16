@@ -125,6 +125,7 @@ Our vision is to be recognized as the training provider of choice in the vertica
 </p>
         </div>
     </div>
+</div>
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
     <ul id="flexiselDemo3">
           <li><a href="http://www.3i-infotech.com" target="_blank"><img src="img/clients/separate page/infotech.jpg" /></a></li>

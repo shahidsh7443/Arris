@@ -48,7 +48,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/Thankyou.php',
+                url: 'Thankyou.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -145,11 +145,10 @@ $.ajax({
 
                 <div>
                 <div class="span4">
-<h3><u>Address</u></h3>
-									<p style="width:102%;border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><b>Corporate Office :</b> #25, Old 22/1, 9th Cross, 5th Main, N R Colony, Bangalore - 560 019<br/><span >Address URL:</span> <a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arris">https://maptags.in/Arris</a><br>
+						<p style="width:103%;border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><b>Corporate Office :</b> #25, Old 22/1, 9th Cross, 5th Main, N R Colony, Bangalore - 560 019<br/><span >Address URL:</span> <a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arris">https://maptags.in/Arris</a><br>
 	 +91 7353775774&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color:#0000ff;" target="_blank" class="withicons" href="https://maptags.in/Arris">View Location</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:info@arristeck.com" style="color:#0000ff;">info@arristeck.com</a></p>
-<hr style="border:1px solid black;">
-<p style="width:102%;"><b>Branch Office</b> : Manyata Embassy Business Park, Ground Floor E1 Block, Beech Building, Outer Ring Road, Bangalore - 560 045&nbsp;&nbsp;|&nbsp;&nbsp;+91 80 42764545<br><span style="color:black;">Address URL: </span><a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arrism">https://maptags.in/Arrism</a><br>
+<hr style="border:0.7px solid black;">
+<p style="width:103%;"><b>Branch Office</b> : Manyata Embassy Business Park, Ground Floor E1 Block, Beech Building, Outer Ring Road, Bangalore - 560 045&nbsp;&nbsp;|&nbsp;&nbsp;+91 80 42764545<br><span style="color:black;">Address URL: </span><a style="color:#0000ff;" target="_blank" href="https://maptags.in/Arrism">https://maptags.in/Arrism</a><br>
 +91 7353530777&nbsp;&nbsp;|&nbsp;&nbsp;<a style="color:#0000ff;" target="_blank" class="withicons" href="https://maptags.in/Arrism">View Location</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:anil@arristeck.com" style="color:#0000ff;">anil@arristeck.com</a></p>
 </span></p>
 </div><br />
@@ -267,7 +266,8 @@ $.ajax({
             </table>
         </div>
   	</div>
-    </div><!-- end of content -->
+    </div>
+</div><!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
 
 		<p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -448,7 +448,7 @@ $.ajax({
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+    <!-- Container End -->
 		<script type="text/javascript">
 
 		$(document).ready(function(){

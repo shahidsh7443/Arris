@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_POST)) {
 	$namef = $_POST['name'];
@@ -15,7 +14,7 @@ $body ="Dear " .$namef. "," ."<br><br>". "Thanks for business enquiry. One of ou
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From:shahidrazorbee@gmail.com". "\r\n";
+$headers .= "From:rekha@arristeck.com". "\r\n";
 $success=mail($email,$subject,$body,$headers);
 if( $success== true ) {
 echo "1111";
@@ -41,12 +40,13 @@ $body .="<p><br>With Regards,<br>www.arrisventures.in</p>";
 $body .="</body></html>";
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From:".$email. "\r\n";
-$success1=mail("shahidrazorbee@gmail.com",$subject,$body,$headers);
+$headers .= "From:".$email. "\r\n".
+"CC: anil@arristeck.com,arvind@arristeck.com"; 
+$success1=mail("rekha@arristeck.com",$subject,$body,$headers);
 /*if( $success1== true ) {
-echo "<script type='text/javascript'>alert('Mailqq Sent successfully');</script>";
+echo "1";
 }else {
-echo "<script type='text/javascript'>alert('Unableqq to send mail');</script>";
+echo "0";
 }*/
 }
 ?>

@@ -45,7 +45,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/evtraining.php',
+                url: 'evtraining.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -53,7 +53,8 @@ $.ajax({
                            processData:false,
                 data: form_data,
                 success: function(  ){
-                alert("successful");
+                $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -60px;margin-left: -180px;'>Thankyou for Contacting us</span>");
+                  $('#form')[0].reset();
                },
                 error: function( aa ){
                   $("#submit_button").closest("div").append("<span class='error' style='color:White;font-weight:600;display:inline-block;font-size:15px;position:  absolute;margin-top: -60px;margin-left: -180px;'>Thankyou for Contacting us</span>");
@@ -69,7 +70,7 @@ $.ajax({
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
   <div class="row-fluid">
@@ -113,7 +114,7 @@ $.ajax({
 <h4  id="frmm">If you are looking for any Technical Evaluation for your organisation, please write us your requirement </h4>
 <div class="row-fluid tcc" >
   <form id="form"  name="form" method="POST" class="tcform"  enctype="multipart/form-data">
-  <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">LOOKING FOR CORPORATE TRAINING?</h2>
+  <h2 id="form_title" style="color:white;background-color: #01babd;margin-bottom:50px;">Looking for a Technical  Evaluation?</h2>
   	<div class="form-group">
   		<div class="col-sm-6">
   			<input type="text" class="form-control" maxlength="50" id="name" name="name" pattern="^[a-zA-z]{2,3}[\.][a-zA-Z][a-zA-Z ]+[a-zA-Z]|[a-zA-Z][a-zA-Z ]+[a-zA-Z]*$" placeholder="*Enter Name" onkeyup="send_mail3_contact(this.id)"  required/>
@@ -160,12 +161,13 @@ $.ajax({
   			<button type="submit" name="submit" id="submit_button" class="btn btn-info submit_button" onclick="send_mail3_contact()">Submit</button>
   			<button type="reset" value="Reset" onclick="$('#changeclas').hide();" class="btn btn-warning">Reset</button>
   		</div>
-  	</div>
+  	</div>    </div>
 
   </form>
 </div>
         </div>
     </div>
+
     <!-- Mail -->
 
     <!--End-->
@@ -347,7 +349,7 @@ $.ajax({
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End --><script type="text/javascript">
+<!-- Container End --><script type="text/javascript">
       $(document).ready(function(){
 
           $("#flexiselDemo3").flexisel({

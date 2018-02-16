@@ -118,7 +118,7 @@
             </div>
 
 
-
+</div> 
         </div>
   	</div><!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
@@ -301,7 +301,7 @@
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+    <!-- Container End -->
 		<script type="text/javascript">
       $(document).ready(function(){
 

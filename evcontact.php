@@ -49,7 +49,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-            url: 'http://projects.razorbee.com/arrisventures/econtact.php',
+            url: 'econtact.php',
             type: 'post',
             dataType : 'json',
                        contentType: false,
@@ -73,7 +73,7 @@ $.ajax({
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
 
@@ -228,10 +228,12 @@ $.ajax({
                 <td>Cantonment Railway Station</td>
                 <td>9Km</td>
             </tr>
-            </table>
+             </table>
+  </div> 
         </div>
   	</div>
-    </div><!-- end of content -->
+    </div>
+<!-- end of content -->
     <!-- ***************** End of Main Content Area ************************** -->
 
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
@@ -410,8 +412,7 @@ $.ajax({
         </div>
 
     </div><!-- End of Footer -->
-
-    </div><!-- Container End -->
+<!-- Container End -->
     <script type="text/javascript">
 
     $(document).ready(function(){

@@ -34,7 +34,7 @@ e.preventDefault();
 var form_data = new FormData(this);
 //$(this).serialize(),
 $.ajax({
-                url: 'http://projects.razorbee.com/arrisventures/evthankyou.php',
+                url: 'evthankyou.php',
                 type: 'post',
                 dataType : 'json',
                            contentType: false,
@@ -59,7 +59,7 @@ $.ajax({
 
 <body>
 	<!-- Container for all the Content -->
-	<div class="container-fluid">
+	<div class="container-fluid evl">
 
 	<!-- Header Row -->
   <div class="row-fluid">
@@ -171,14 +171,14 @@ $.ajax({
     <div class="row-fluid rff ivr">
 	<label class="col-sm-4 " for="inputfile" style="width:190px;">Paste Your Profile:</label><!--<span style="float:left;font-weight:bold">:</span>-->
 		<div class="col-sm-8 form-group">
-			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -60px; onkeyup="send_mail1_contact(this.id)"></textarea>
+			<textarea id="pasteprofile" name="pasteprofile" rows="8" style="width:100%;margin-left: -100px; onkeyup="send_mail1_contact(this.id)"></textarea>
 		</div>
     <div class="col-lg-2 or"><p><b>OR</b></p></div>
       <div class="col-lg-12">
         <div class="form-group">
           <label class="col-sm-8 " for="inputfile" style="width:200px;margin-left:-10px;padding-right:0px;">Attach Your Profile:</label>
           	<div class="col-sm-8 form-group">
-    		<input type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-37px;"/></div>
+    		<input type="file" id="profile" name="profile" accept=".docx, .pdf, .rtf" style="margin-left:-57px;"/></div>
     		</div>
       </div>
       </div>
@@ -197,62 +197,9 @@ $.ajax({
 </div>
 </div>      </div>
     </div>
+    </div>
 <!-- Mail -->
-<?php
-if(isset($_POST['submit'])) {
-require 'PHPMailer/PHPMailerAutoload.php';
-$name = $_POST['name'];
-$location= $_POST['location'];
-$mobile= $_POST['mobile'];
-$email= $_POST['email'];
-$msg= $_POST['msg'];
-$pp=$_POST['pasteresume'];
-$email1="anil@arristeck.com";
-$email2="arvind@arristeck.com";
-$subject = "Your resume submission acknowledgement";
-$body = "Dear ".$name.","."<br><br>"."Thanks for sharing your  resume. One of our managers will be contacting you shortly and do the needful.<br><br>With Regards,<br>ArrisVentures Team<br>www.arrisventures.in";
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From:rekha@arristeck.com". "\r\n";
-$success=mail($email,$subject,$body,$headers);
-if( $success== true ) {
-echo "<script type='text/javascript'>alert('Mail Sent successfully');</script>";
-}else {
-echo "<script type='text/javascript'>alert('Unable to send mail');</script>";
-}
-if($pp!="")
-{
-  $res="Please find the resume pasted for your kind perusal and further processing.";
-}
-else {
-  $res="Please find the resume attached for your kind perusal and further processing.";
-}
-$mailfrom = $_POST['email'];
-try {
-    $mail = new PHPMailer;
-    $mail->FromName   = $_POST['name'];
-    $to_email ="rekha@arristeck.com";
-    $mail->AddAddress($to_email);
-    $mail->From       = $mailfrom;
-    $mail->Subject  = "Trainer Profile ";
-  $body ="Dear Rekha,<br><br>You have received an online Interviewer Resume from ".$name. " with the following details.<br><br>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$name. "<br><br>Mobile No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$mobile. "<br><br>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$email. "<br><br>Location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$location. "<br><br>Message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:" .$msg."<br><br>Resume:<br><br>".$res. "<br><br>" .$pp. "<br><br>With Regards,<br>www.arrisventures.in";
-    $mail->MsgHTML($body);
-    $mail->IsSendmail();
-    $mail->AddCC($email1);
-    $mail->AddCC($email2);
-    $mail->AddReplyTo($mailfrom);
-    $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!";
-    $mail->WordWrap   = 80;
-    $mail->AddAttachment($_FILES['resume']['tmp_name'], $_FILES['resume']['name']);
-    $mail->IsHTML(true);
-    $mail->Send();
-      }
-catch (phpmailerException $e) {
-  echo $e->errorMessage();
-}
-}
-?>
+
 <!--End -->
     <p class="sep2" style="border:3px solid #00b8bb;"></p>
     <ul id="flexiselDemo3">
@@ -431,7 +378,7 @@ catch (phpmailerException $e) {
 
     </div><!-- End of Footer -->
 
-    </div><!-- Container End -->
+<!-- Container End -->
     <script type="text/javascript">
       $(document).ready(function(){
 
